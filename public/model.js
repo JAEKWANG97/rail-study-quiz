@@ -9,15 +9,16 @@ export function makeDeck(questions, order = 'shuffle', random = Math.random) {
   return deck;
 }
 
-export function filterQuestions(questions, {source = 'all', scope = 'all', query = ''}, marks = {}) {
+export function filterQuestions(questions, {source = 'all', kind = 'all', scope = 'all', query = ''}, marks = {}) {
   const search = query.normalize('NFC').trim().toLocaleLowerCase('ko-KR');
   return questions.filter(question => {
     const mark = marks[question.id] || {};
     if (source !== 'all' && question.source !== source) return false;
+    if (kind !== 'all' && (question.kind || 'original') !== kind) return false;
     if (scope === 'review' && mark.status !== 'review') return false;
     if (scope === 'starred' && !mark.starred) return false;
     if (scope === 'unlearned' && mark.status === 'learned') return false;
-    return !search || `${question.number} ${question.question} ${question.answer}`.normalize('NFC').toLocaleLowerCase('ko-KR').includes(search);
+    return !search || `${question.number} ${question.originalNumber || ''} ${question.question} ${question.answer}`.normalize('NFC').toLocaleLowerCase('ko-KR').includes(search);
   });
 }
 

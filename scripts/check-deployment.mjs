@@ -11,7 +11,10 @@ const versionResponse = await fetch(new URL('version.json', site));
 assert.equal(versionResponse.status, 200, '배포 버전 파일 HTTP 상태');
 const version = await versionResponse.json();
 assert.equal(version.revision, revision, '배포본과 로컬 커밋 일치');
-assert.equal(version.questionCount, 172);
+const original = JSON.parse(await readFile(`${root}public/questions.json`, 'utf8'));
+const supplemental = JSON.parse(await readFile(`${root}public/supplemental.json`, 'utf8'));
+assert.equal(version.questionCount, original.questions.length + supplemental.questions.length);
+assert.deepEqual(version.counts, {original:original.questions.length, ...supplemental.counts});
 const files = [];
 async function collect(directory = '') {
   for (const entry of await readdir(`${root}public/${directory}`, {withFileTypes:true})) {

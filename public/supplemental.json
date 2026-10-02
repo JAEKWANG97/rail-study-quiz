@@ -1,0 +1,1761 @@
+{
+  "version": 1,
+  "counts": {
+    "reference": 46,
+    "scenario": 7,
+    "sign": 16
+  },
+  "referenceBlocks": [
+    {
+      "id": "reference-textbook-4-1",
+      "parentId": "textbook-4",
+      "text": "[참고] 구원 운전 관련\n1. 12JP 연결하면 RSOS 위치와 관계없이 접속되는 선은 145, 175, 176선\n2. 평가 위원이 “○○역에 고장 열차가 정차하고 있으니 구원 운전 하세요.” 하면, 구원\n열차 기관사의 조치 사항 답변\n3. 구원 운전 스위치(RSOS)는 마주 보는 운전실의 RSOS를 해당 차량 위치로 절환\n▶정상 ▶과천선(분당선) ▶과천선 → 1호선 ▶1호선 → 과천선 ▶DL 위치\n4. 구원 운전 시 구원열차 운전 속도 25km/h 이하\n(같은 차종으로 전부 운전실에서 구원 운전 시는 45km/h 이하 주의 운전)\n5. 회송 운전 시 정거장의 승강장 통과 속도는 서울교통공사 구간은 45km/h, 한국철도\n공사 구간은 60km/h 이하(정차 열차 제외)",
+      "members": [
+        "reference-textbook-4-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-5-1",
+      "parentId": "textbook-5",
+      "text": "[참고] 기타 필요 시\n1. MCB 투입 및 MCB 차단 불능 시\n2. 전차선이 없는 구간에 잘못 진입 시\n3. L1차단 복귀 불능 시 등",
+      "members": [
+        "reference-textbook-5-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-7-1",
+      "parentId": "textbook-7",
+      "text": "[참고] 완전 부동 취급하고 연장 급전 후 현상\n- 해당 Unit Pan 하강으로 MCB 양 소등되고 동력 운전 및 제동 시 POWER등 점등 불능\n- 연장 급전으로 전체 객실등과 냉난방이 반감되나, 고장 Unit CM은 정상 구동",
+      "members": [
+        "reference-textbook-7-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-9-1",
+      "parentId": "textbook-9",
+      "text": "[참고] VCOS 취급 후 현상 및 조치\n1. VCOS 취급 후 CIFR, BMFR 여자 시는 Fault등 소등, VCO등 점등, MTAR 여자 시는\nFault 등 소등, UCO등 점등\n2. CIFR, BMFR 고장 차량은 L1, L2, L3 투입 불능 및 AK, K 투입 불능 고장 없이 정지\n한 차량은 MCB 재투입되나 MTAR은 MCB 투입 불능\n3. M'차가 개방된 경우 또는 MTAR 여자 시는 연장 급전 필요",
+      "members": [
+        "reference-textbook-9-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-10-1",
+      "parentId": "textbook-10",
+      "text": "[참고] 연장 급전 관련 출제 가능한 문제\n1.연장 급전이 된 것을 확인하는 방법은 모니터의 ‘차량 상태’ 화면 또는 객실등 반감\n상태로 확인\n2. IVCN 차단 시 모니터에 나타나는 현상은 모니터에 ‘SIV 통신 이상’ 현시\n3.고장 차(TC, T1) IVCN을 차단하는 이유는 연장 급전 회로를 구성하기 위함.",
+      "members": [
+        "reference-textbook-10-1-1",
+        "reference-textbook-10-1-2",
+        "reference-textbook-10-1-3"
+      ]
+    },
+    {
+      "id": "reference-textbook-11-1",
+      "parentId": "textbook-11",
+      "text": "[참고]\nPan 상승 시간은 12±2초, Pan 하강 시간은 5±1초",
+      "members": [
+        "reference-textbook-11-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-12-1",
+      "parentId": "textbook-12",
+      "text": "[참고]\n1. PanV 이전 Cock 차단 시는 MCB 양 소등\n2. PanV와 PanPS 이후 Cock 차단 시는 MCB 정상 투입",
+      "members": [
+        "reference-textbook-12-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-13-1",
+      "parentId": "textbook-13",
+      "text": "[참고]\n1. MCB(Main Circuit Braker)란?\n교류 구간에서 특고압 회로 이상 발생 시 회로를 신속히 차단하여 보호하고, 평상시에는\n특고압 회로의 개폐 작용을 한다. 직류 구간에서는 특고압 회로의 개폐 작용만 한다.\n2. MCB 사고 차단의 경우\n① 교류 모진으로 ArrOCR 여자 시\n② 주 변압기 1차 측 과전류로 ACOCR 여자 시\n③ 주 변환 장치의 중(重)고장으로 MCBOR 무여자(소자) 시\n(MT 2차측 과부하 및 접지, 전력 변환 소자 소손)",
+      "members": [
+        "reference-textbook-13-1-1",
+        "reference-textbook-13-1-2"
+      ]
+    },
+    {
+      "id": "reference-textbook-15-1",
+      "parentId": "textbook-15",
+      "text": "[참고] 동력 운전 관련 출제 가능한 문제\n1. 1칸 동력 운전 불능 시는 M차 또는 M'차 배전반의 CN1, CN3 차단 확인\n※ CN1 : 전·후진 제어 회로 차단기, CN3 : 동력 제어 회로 차단기, CN2 : 회생제동\n제어 회로 차단기\n2. POWER등, MCB ON등, MCB OFF등 모두 소등 시 후부 운전실 PLpN 차단 확인",
+      "members": [
+        "reference-textbook-15-1-1",
+        "reference-textbook-15-1-2"
+      ]
+    },
+    {
+      "id": "reference-textbook-18-1",
+      "parentId": "textbook-18",
+      "text": "[참고] BVN1 회로 차단기 복귀 불능 시\nEBCOS 취급하면 비상제동은 완해되지만 BR 여자 불능으로 동력 운전이 불가능하고,\nZVR 무여자로 정차 시 출입문 취급 불능이며, 제동 제어 전원 차단으로 상용제동 불능임.",
+      "members": [
+        "reference-textbook-18-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-19-1",
+      "parentId": "textbook-19",
+      "text": "[참고 1] EBCOS 투입하면 비상제동이 완해되는 경우\n① DSD불량으로 비상제동 완해 불능시\n② 전, 후부 운전실 RSOS정상위치 아닐 때\n③ MR압력 6.0kg/㎠이하 시\n④ 전, 후부 운전실 EBS1, 2복귀 불능 시",
+      "members": [
+        "reference-textbook-19-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-19-2",
+      "parentId": "textbook-19",
+      "text": "[참고 2]\nEBCOS취급 시, 보안장치(ATS, ATC, DSD 등) 및 열차분리 시 비상제동이 체결되지\n않으니 주의할 것",
+      "members": [
+        "reference-textbook-19-2"
+      ]
+    },
+    {
+      "id": "reference-textbook-20-1",
+      "parentId": "textbook-20",
+      "text": "[참고] 차량 간 주 공기 누설 시 조치\n1. 누설 개소 전.후 차 사이의 MR Cock 차단(각 2개씩 : 4개)\n2. CM이 1개 있는 곳의 CMCN을 OFF 하여 동기 구동 회로 차단\n3. 해당 차량 출입문 쇄정 후 필요시 DIRS 취급\n4. 차량 교환 역까지 운행",
+      "members": [
+        "reference-textbook-20-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-22-1",
+      "parentId": "textbook-22",
+      "text": "[참고]\nPBPS 또는 MRPS 작동 압력 : 6.0~7.0kg/㎠",
+      "members": [
+        "reference-textbook-22-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-23-1",
+      "parentId": "textbook-23",
+      "text": "[참고]\nBC 전체 완해 Cock를 차단하는 이유는 공기제동을 완해한 상태에서 주차제동 완해가\n가능하고, 주차제동 완해 여부를 확인할 수 있기 때문",
+      "members": [
+        "reference-textbook-23-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-24-1",
+      "parentId": "textbook-24",
+      "text": "[참고] 제동 불(不)완해 관련\n1. BC 전체 완해 Cock를 차단해도 완해 불능이면, 대차 Cock를 차단하여 완해. 대차 Cock를\n차단해도 완해 불능 시는 관제사에게 차량 상태를 통보하고 관제사 지시를 받고 조치\n2. 1개 차량에 BC 관련 Cock는 BC 전체 완해 Cock 1개, 전부와 후부 대차 Cock 각 1개,\n3. 제동 불완해 시 CpRS 취급 차량의 제동 취급 상태. 상용 공기제동과 비상제동은 작용\n불능이고, 보안제동은 가능\n4. 제동축 비율이란 연결 차량의 차축 수에 대한 제동축(제동 작용하는 차축) 수의 비율\n이고, 제동축 비율에 따른 적용 속도는 다음과 같음.\n\n제동축 비율        적용 속도(km/h)              비고\n\n100% 미만 80% 이상       110\n40% 미만이 되었을 때 최근 정거장까지\n80% 미만 60% 이상        90\n25km/h 이하 운행 후 조치\n60% 미만 40% 이상        70",
+      "members": [
+        "reference-textbook-24-1-1",
+        "reference-textbook-24-1-2",
+        "reference-textbook-24-1-3",
+        "reference-textbook-24-1-4"
+      ]
+    },
+    {
+      "id": "reference-textbook-25-1",
+      "parentId": "textbook-25",
+      "text": "[참고] 보안제동이 체결되지 않는 경우의 조치\n- 운전실 내 ScBN 차단 여부 확인\n- 1량인 경우, 해당 차량 배전반 내 ScBN1 확인",
+      "members": [
+        "reference-textbook-25-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-27-1",
+      "parentId": "textbook-27",
+      "text": "[참고] SIV 전원 공급처\n- AC440V : CM, 냉난방, CIBM, FLBM, MTBM, MTOM\n- AC220V : 운전실등(AC), 객실등(AC), 행선등, 열차번호등\n- AC100V : 전조등(AC), 제상기(除霜機), Levelling 밸브·각종 장치 히터\n- DC100V : 축전지 전원(충전), 저압·제어 전원, 객실등(DC)·방공등, 전조등(DC)",
+      "members": [
+        "reference-textbook-27-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-28-1",
+      "parentId": "textbook-28",
+      "text": "[참고] 폐색구간 점유의 기준\nATS 구간은 출발신호기, ATC 구간은 출발 경계표지를 기준으로 한다.",
+      "members": [
+        "reference-textbook-28-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-29-1",
+      "parentId": "textbook-29",
+      "text": "[참고] 산본역 상선, 금정역 하선 운전 취급\n열차의 후부가 맨 바깥쪽 선로전환기를 통과 후\n1. 상선 산본역을 발차 시는 45km/h 이하에서 제동 감도 시험(제동체결 속도에서 10km/h\n이상 감속)\n2. 하선 금정역 발차 시는 제한속도 40km/h 이하로 운전",
+      "members": [
+        "reference-textbook-29-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-30-1",
+      "parentId": "textbook-30",
+      "text": "[참고] 장시간 단전 또는 순간 단전 관련 사항\n1. Pan 하강, 제동 핸들 취거하고 EOCN ON(EON. EORN. ON) 취급 후 현상\n① 객실 방공등 4개 점등(실제 차는 6개 점등)\n② 열차 무선전화 가능(WTS ON 확인)\n③ 실내 방송 및 차내 전화 가능(연락 버저 사용 불능)\n2. 단전 후 급전 시 MCBOS-MCBCS 취급하는 이유\n- 7, 8선을 끊어 MCBR2 자기 여자회로를 차단하기 위해 취급\n3. 운행 중 단전 시 기관사의 조치\n① 관제사에게 단전 여부 및 급전 시기 확인, 차장에게 안내 방송 요청\n\n② 무동력으로 최근 정거장까지 운행하면서, 급전이 되면 MCBOS-MCBCS 취급하여 MCB 투입\n③ 만약 회생제동 중 단전이 되었으면, 급전 후 MCBOS-RS–3초 후 MCBCS 취급\n하여 C/I 인버터 정지를 복귀",
+      "members": [
+        "reference-textbook-30-1-1",
+        "reference-textbook-30-1-2",
+        "reference-textbook-30-1-3"
+      ]
+    },
+    {
+      "id": "reference-textbook-35-1",
+      "parentId": "textbook-35",
+      "text": "[참고] 교류 모진(DCArr 방전) 확인 방법\n모니터 또는 Fault등, 차측등(백색)이 점등되나, 승객 제보(굉음) 등으로 확인",
+      "members": [
+        "reference-textbook-35-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-36-1",
+      "parentId": "textbook-36",
+      "text": "[참고] 교-직 전환 시 조치 관련\n1. 절연 구간에서 MCB 양 소등되는 경우\n- 열차 편성 중 MCB 기계적 고착 또는 MCBN1 차단(직류 전환 시에 한함) 차량이\n있으면 MCB 양 소등됨.\n2. 직류 모진이란, 직류의 대(大)전류가 주 변압기 1차 측으로 들어와 주 퓨즈가 용손되는 것.\n3. 직류 모진 시 작동 기기와 현상 및 조치\n- 주 퓨즈(MFs) 용손으로 60초 후 MCB 차단되므로, 최근 정거장에 도착하여 해당 차\n완전 부동 취급 후 연장 급전하고 운전\n4. 주 퓨즈 용손 시의 현상은 주 퓨즈의 빨간색 단추가 약 30mm 튀어나오고, MTOM\n정지로 60초 후 MTOFTR이 작동되어 MTAR 여자로 MCB가 차단 됨.",
+      "members": [
+        "reference-textbook-36-1-1",
+        "reference-textbook-36-1-2",
+        "reference-textbook-36-1-3",
+        "reference-textbook-36-1-4"
+      ]
+    },
+    {
+      "id": "reference-textbook-37-1",
+      "parentId": "textbook-37",
+      "text": "[참고] EPanDS 취급 시기\n전차선 장애 발견 시, 교-직 전환 중 MCB 고장 발생 시, 운전 취급 중 또는 검수 작업 시\n등 급히 Pan을 하강할 필요가 있을 때 취급",
+      "members": [
+        "reference-textbook-37-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-43-1",
+      "parentId": "textbook-43",
+      "text": "[참고]\n기관사 안전장치(DSD)가 작동하면 5초 동안 경고음(“안전 운행 합시다.”)이 울리고, 복귀\n되지 않으면 EMR2를 무여자 시켜 비상제동이 작용",
+      "members": [
+        "reference-textbook-43-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-53-1",
+      "parentId": "textbook-53",
+      "text": "[참고]\n1. 출입문 스위치(DS) 기계적 접점\n① DILP : 출입문 7.5mm 이하 닫혔을 때 접촉, DOOR등 점등, 동력 운전 회로(DIR1,\n2) 구성\n② DLP : 출입문 12.5mm 이상 열렸을 때 접촉, 출입문 차측등(적색) 점등, 모니터\n출입문 열림 표시\n③ DRO : 출입문 12.5mm 이상 열렸을 때 접촉, 해당 출입문 재개폐 회로 구성\n2. 출입문 제어 공기압력은 5kg/㎠이고, 출입문 Cock는 개별 수동 Cock 8개, 전체 차단\nCock는 객실 내부 1개, 외부 2개, 총11개.\n3. 현재 안전문 오(誤)작동 발생으로 DROS 취급 회로 단선함.",
+      "members": [
+        "reference-textbook-53-1-1",
+        "reference-textbook-53-1-2",
+        "reference-textbook-53-1-3"
+      ]
+    },
+    {
+      "id": "reference-textbook-55-1",
+      "parentId": "textbook-55",
+      "text": "[참고] ATC 장치 고장 시 취급 ⁴⁾\n1. 즉시 정차하여 고장 내용을 역장 또는 관제사에게 보고하고 지시를 받음.\n(차상 장치 고장을 통보받은 관제사는 가장 가까운 정거장까지 지령 운전 지시)\n2. 지시를 받을 수 없는 경우, 차상 장치 고장 시는 통신 가능 지점까지 확인 운전하고,\n지상 장치 고장 시는 해당 구간을 확인 운전",
+      "members": [
+        "reference-textbook-55-1"
+      ]
+    },
+    {
+      "id": "reference-textbook-68-1",
+      "parentId": "textbook-68",
+      "text": "[참고]\n1. Pick Up Coil : 궤도회로로부터 지령 속도 수신\n2. 속도발전기 : 차축의 회전수에 따라 발생하는 주파수로 실제 운행 속도 검지\n3. ATC Rack : ATC함으로 지령 속도와 실제 속도를 비교하여 운전 상태 감시\n4. ADU : 차내 신호기로 실제 속도와 지령 속도 현시",
+      "members": [
+        "reference-textbook-68-1-1",
+        "reference-textbook-68-1-2",
+        "reference-textbook-68-1-3",
+        "reference-textbook-68-1-4"
+      ]
+    },
+    {
+      "id": "reference-textbook-76-1",
+      "parentId": "textbook-76",
+      "text": "[참고] 무선전화기 방호 방법\n- 열차 무선전화 채널을 비상 통화 위치로 이동\n- “○열차 ○○~△△역 간 상(하)선 무선 방호”라고 3~5회 반복 통보",
+      "members": [
+        "reference-textbook-76-1"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "source": "textbook",
+      "parentId": "textbook-4",
+      "originalNumber": "6.4",
+      "page": 3,
+      "endPage": 3,
+      "pageNumbers": [
+        3
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-4-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-4-1",
+      "number": "참고 6.4",
+      "question": "구원 운전 관련 참고사항은?",
+      "answer": "[참고] 구원 운전 관련\n1. 12JP 연결하면 RSOS 위치와 관계없이 접속되는 선은 145, 175, 176선\n2. 평가 위원이 “○○역에 고장 열차가 정차하고 있으니 구원 운전 하세요.” 하면, 구원\n열차 기관사의 조치 사항 답변\n3. 구원 운전 스위치(RSOS)는 마주 보는 운전실의 RSOS를 해당 차량 위치로 절환\n▶정상 ▶과천선(분당선) ▶과천선 → 1호선 ▶1호선 → 과천선 ▶DL 위치\n4. 구원 운전 시 구원열차 운전 속도 25km/h 이하\n(같은 차종으로 전부 운전실에서 구원 운전 시는 45km/h 이하 주의 운전)\n5. 회송 운전 시 정거장의 승강장 통과 속도는 서울교통공사 구간은 45km/h, 한국철도\n공사 구간은 60km/h 이하(정차 열차 제외)"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-5",
+      "originalNumber": "6.5",
+      "page": 3,
+      "endPage": 3,
+      "pageNumbers": [
+        3
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-5-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-5-1",
+      "number": "참고 6.5",
+      "question": "완전 부동 취급이 필요한 기타 경우는?",
+      "answer": "[참고] 기타 필요 시\n1. MCB 투입 및 MCB 차단 불능 시\n2. 전차선이 없는 구간에 잘못 진입 시\n3. L1차단 복귀 불능 시 등"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-7",
+      "originalNumber": "6.7",
+      "page": 4,
+      "endPage": 4,
+      "pageNumbers": [
+        4
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-7-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-7-1",
+      "number": "참고 6.7",
+      "question": "완전 부동 취급 후 연장 급전하면 어떤 현상이 나타나는가?",
+      "answer": "[참고] 완전 부동 취급하고 연장 급전 후 현상\n- 해당 Unit Pan 하강으로 MCB 양 소등되고 동력 운전 및 제동 시 POWER등 점등 불능\n- 연장 급전으로 전체 객실등과 냉난방이 반감되나, 고장 Unit CM은 정상 구동"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-9",
+      "originalNumber": "6.9",
+      "page": 5,
+      "endPage": 5,
+      "pageNumbers": [
+        5
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-9-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-9-1",
+      "number": "참고 6.9",
+      "question": "VCOS 취급 후 현상 및 조치는?",
+      "answer": "[참고] VCOS 취급 후 현상 및 조치\n1. VCOS 취급 후 CIFR, BMFR 여자 시는 Fault등 소등, VCO등 점등, MTAR 여자 시는\nFault 등 소등, UCO등 점등\n2. CIFR, BMFR 고장 차량은 L1, L2, L3 투입 불능 및 AK, K 투입 불능 고장 없이 정지\n한 차량은 MCB 재투입되나 MTAR은 MCB 투입 불능\n3. M'차가 개방된 경우 또는 MTAR 여자 시는 연장 급전 필요"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-10",
+      "originalNumber": "6.10",
+      "page": 5,
+      "endPage": 5,
+      "pageNumbers": [
+        5
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-10-1-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-10-1",
+      "number": "참고 6.10-1",
+      "question": "연장 급전 여부를 확인하는 방법은?",
+      "answer": "1.연장 급전이 된 것을 확인하는 방법은 모니터의 ‘차량 상태’ 화면 또는 객실등 반감\n상태로 확인"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-10",
+      "originalNumber": "6.10",
+      "page": 5,
+      "endPage": 5,
+      "pageNumbers": [
+        5
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-10-1-2",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-10-1",
+      "number": "참고 6.10-2",
+      "question": "IVCN을 차단하면 모니터에 표시되는 내용은?",
+      "answer": "2. IVCN 차단 시 모니터에 나타나는 현상은 모니터에 ‘SIV 통신 이상’ 현시"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-10",
+      "originalNumber": "6.10",
+      "page": 5,
+      "endPage": 5,
+      "pageNumbers": [
+        5
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-10-1-3",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-10-1",
+      "number": "참고 6.10-3",
+      "question": "연장 급전 시 고장차의 IVCN을 차단하는 이유는?",
+      "answer": "3.고장 차(TC, T1) IVCN을 차단하는 이유는 연장 급전 회로를 구성하기 위함."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-11",
+      "originalNumber": "6.11",
+      "page": 6,
+      "endPage": 6,
+      "pageNumbers": [
+        6
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-11-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-11-1",
+      "number": "참고 6.11",
+      "question": "Pan의 상승 시간과 하강 시간은?",
+      "answer": "[참고]\nPan 상승 시간은 12±2초, Pan 하강 시간은 5±1초"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-12",
+      "originalNumber": "6.12",
+      "page": 6,
+      "endPage": 6,
+      "pageNumbers": [
+        6
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-12-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-12-1",
+      "number": "참고 6.12",
+      "question": "PanV 전후의 Cock 차단 위치에 따른 MCB 상태는?",
+      "answer": "[참고]\n1. PanV 이전 Cock 차단 시는 MCB 양 소등\n2. PanV와 PanPS 이후 Cock 차단 시는 MCB 정상 투입"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-13",
+      "originalNumber": "6.13",
+      "page": 7,
+      "endPage": 7,
+      "pageNumbers": [
+        7
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-13-1-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-13-1",
+      "number": "참고 6.13-1",
+      "question": "MCB란? 교류·직류 구간에서의 역할은?",
+      "answer": "1. MCB(Main Circuit Braker)란?\n교류 구간에서 특고압 회로 이상 발생 시 회로를 신속히 차단하여 보호하고, 평상시에는\n특고압 회로의 개폐 작용을 한다. 직류 구간에서는 특고압 회로의 개폐 작용만 한다."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-13",
+      "originalNumber": "6.13",
+      "page": 7,
+      "endPage": 7,
+      "pageNumbers": [
+        7
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-13-1-2",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-13-1",
+      "number": "참고 6.13-2",
+      "question": "MCB가 사고 차단되는 경우는?",
+      "answer": "2. MCB 사고 차단의 경우\n① 교류 모진으로 ArrOCR 여자 시\n② 주 변압기 1차 측 과전류로 ACOCR 여자 시\n③ 주 변환 장치의 중(重)고장으로 MCBOR 무여자(소자) 시\n(MT 2차측 과부하 및 접지, 전력 변환 소자 소손)"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-15",
+      "originalNumber": "6.15",
+      "page": 8,
+      "endPage": 8,
+      "pageNumbers": [
+        8
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-15-1-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-15-1",
+      "number": "참고 6.15-1",
+      "question": "1칸 동력 운전 불능 시 확인할 차단기와 CN1·CN2·CN3의 역할은?",
+      "answer": "1. 1칸 동력 운전 불능 시는 M차 또는 M'차 배전반의 CN1, CN3 차단 확인\n※ CN1 : 전·후진 제어 회로 차단기, CN3 : 동력 제어 회로 차단기, CN2 : 회생제동\n제어 회로 차단기"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-15",
+      "originalNumber": "6.15",
+      "page": 8,
+      "endPage": 8,
+      "pageNumbers": [
+        8
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-15-1-2",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-15-1",
+      "number": "참고 6.15-2",
+      "question": "POWER 및 MCB ON·OFF등이 모두 소등될 때 확인할 사항은?",
+      "answer": "2. POWER등, MCB ON등, MCB OFF등 모두 소등 시 후부 운전실 PLpN 차단 확인"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-18",
+      "originalNumber": "6.18",
+      "page": 9,
+      "endPage": 9,
+      "pageNumbers": [
+        9
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-18-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-18-1",
+      "number": "참고 6.18",
+      "question": "BVN1 복귀 불능 시 EBCOS를 취급하면 어떤 현상이 나타나는가?",
+      "answer": "[참고] BVN1 회로 차단기 복귀 불능 시\nEBCOS 취급하면 비상제동은 완해되지만 BR 여자 불능으로 동력 운전이 불가능하고,\nZVR 무여자로 정차 시 출입문 취급 불능이며, 제동 제어 전원 차단으로 상용제동 불능임."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-19",
+      "originalNumber": "6.19",
+      "page": 9,
+      "endPage": 9,
+      "pageNumbers": [
+        9
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-19-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-19-1",
+      "number": "참고 6.19-1",
+      "question": "EBCOS 투입으로 비상제동이 완해되는 경우는?",
+      "answer": "[참고 1] EBCOS 투입하면 비상제동이 완해되는 경우\n① DSD불량으로 비상제동 완해 불능시\n② 전, 후부 운전실 RSOS정상위치 아닐 때\n③ MR압력 6.0kg/㎠이하 시\n④ 전, 후부 운전실 EBS1, 2복귀 불능 시"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-19",
+      "originalNumber": "6.19",
+      "page": 10,
+      "endPage": 10,
+      "pageNumbers": [
+        10
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-19-2",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-19-2",
+      "number": "참고 6.19-2",
+      "question": "EBCOS 취급 시 보안장치 및 열차 분리와 관련한 주의사항은?",
+      "answer": "[참고 2]\nEBCOS취급 시, 보안장치(ATS, ATC, DSD 등) 및 열차분리 시 비상제동이 체결되지\n않으니 주의할 것"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-20",
+      "originalNumber": "6.20",
+      "page": 10,
+      "endPage": 10,
+      "pageNumbers": [
+        10
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-20-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-20-1",
+      "number": "참고 6.20",
+      "question": "차량 간 주 공기 누설 시 조치는?",
+      "answer": "[참고] 차량 간 주 공기 누설 시 조치\n1. 누설 개소 전.후 차 사이의 MR Cock 차단(각 2개씩 : 4개)\n2. CM이 1개 있는 곳의 CMCN을 OFF 하여 동기 구동 회로 차단\n3. 해당 차량 출입문 쇄정 후 필요시 DIRS 취급\n4. 차량 교환 역까지 운행"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-22",
+      "originalNumber": "6.22",
+      "page": 11,
+      "endPage": 11,
+      "pageNumbers": [
+        11
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-22-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-22-1",
+      "number": "참고 6.22",
+      "question": "PBPS 또는 MRPS의 작동 압력은?",
+      "answer": "[참고]\nPBPS 또는 MRPS 작동 압력 : 6.0~7.0kg/㎠"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-23",
+      "originalNumber": "6.23",
+      "page": 12,
+      "endPage": 12,
+      "pageNumbers": [
+        12
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-23-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-23-1",
+      "number": "참고 6.23",
+      "question": "주차제동 완해 시 BC 전체 완해 Cock를 차단하는 이유는?",
+      "answer": "[참고]\nBC 전체 완해 Cock를 차단하는 이유는 공기제동을 완해한 상태에서 주차제동 완해가\n가능하고, 주차제동 완해 여부를 확인할 수 있기 때문"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-24",
+      "originalNumber": "6.24",
+      "page": 12,
+      "endPage": 12,
+      "pageNumbers": [
+        12
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-24-1-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-24-1",
+      "number": "참고 6.24-1",
+      "question": "BC 전체 완해 Cock 차단 후에도 완해 불능이면 어떻게 조치하는가?",
+      "answer": "1. BC 전체 완해 Cock를 차단해도 완해 불능이면, 대차 Cock를 차단하여 완해. 대차 Cock를\n차단해도 완해 불능 시는 관제사에게 차량 상태를 통보하고 관제사 지시를 받고 조치"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-24",
+      "originalNumber": "6.24",
+      "page": 12,
+      "endPage": 12,
+      "pageNumbers": [
+        12
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-24-1-2",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-24-1",
+      "number": "참고 6.24-2",
+      "question": "1개 차량에 있는 BC 관련 Cock의 구성은?",
+      "answer": "2. 1개 차량에 BC 관련 Cock는 BC 전체 완해 Cock 1개, 전부와 후부 대차 Cock 각 1개,"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-24",
+      "originalNumber": "6.24",
+      "page": 12,
+      "endPage": 12,
+      "pageNumbers": [
+        12
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-24-1-3",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-24-1",
+      "number": "참고 6.24-3",
+      "question": "제동 불완해 시 CpRS 취급 차량에서 가능한 제동과 불가능한 제동은?",
+      "answer": "3. 제동 불완해 시 CpRS 취급 차량의 제동 취급 상태. 상용 공기제동과 비상제동은 작용\n불능이고, 보안제동은 가능"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-24",
+      "originalNumber": "6.24",
+      "page": 12,
+      "endPage": 12,
+      "pageNumbers": [
+        12
+      ],
+      "imagePages": [
+        12
+      ],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-24-1-4",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-24-1",
+      "number": "참고 6.24-4",
+      "question": "제동축 비율의 뜻과 비율별 적용 속도는?",
+      "answer": "4. 제동축 비율이란 연결 차량의 차축 수에 대한 제동축(제동 작용하는 차축) 수의 비율\n이고, 제동축 비율에 따른 적용 속도는 다음과 같음.\n\n제동축 비율        적용 속도(km/h)              비고\n\n100% 미만 80% 이상       110\n40% 미만이 되었을 때 최근 정거장까지\n80% 미만 60% 이상        90\n25km/h 이하 운행 후 조치\n60% 미만 40% 이상        70",
+      "answerNote": "속도표의 열 배치는 아래 원문 그림·표에서 확인해 주세요."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-25",
+      "originalNumber": "6.25",
+      "page": 13,
+      "endPage": 13,
+      "pageNumbers": [
+        13
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-25-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-25-1",
+      "number": "참고 6.25",
+      "question": "보안제동이 체결되지 않는 경우의 조치는?",
+      "answer": "[참고] 보안제동이 체결되지 않는 경우의 조치\n- 운전실 내 ScBN 차단 여부 확인\n- 1량인 경우, 해당 차량 배전반 내 ScBN1 확인"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-27",
+      "originalNumber": "6.27",
+      "page": 14,
+      "endPage": 14,
+      "pageNumbers": [
+        14
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-27-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-27-1",
+      "number": "참고 6.27",
+      "question": "SIV의 전압별 전원 공급처는?",
+      "answer": "[참고] SIV 전원 공급처\n- AC440V : CM, 냉난방, CIBM, FLBM, MTBM, MTOM\n- AC220V : 운전실등(AC), 객실등(AC), 행선등, 열차번호등\n- AC100V : 전조등(AC), 제상기(除霜機), Levelling 밸브·각종 장치 히터\n- DC100V : 축전지 전원(충전), 저압·제어 전원, 객실등(DC)·방공등, 전조등(DC)"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-28",
+      "originalNumber": "6.28",
+      "page": 14,
+      "endPage": 14,
+      "pageNumbers": [
+        14
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-28-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-28-1",
+      "number": "참고 6.28",
+      "question": "ATS·ATC 구간의 폐색구간 점유 기준은?",
+      "answer": "[참고] 폐색구간 점유의 기준\nATS 구간은 출발신호기, ATC 구간은 출발 경계표지를 기준으로 한다."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-29",
+      "originalNumber": "6.29",
+      "page": 15,
+      "endPage": 15,
+      "pageNumbers": [
+        15
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-29-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-29-1",
+      "number": "참고 6.29",
+      "question": "산본역 상선·금정역 하선에서 후부가 맨 바깥쪽 선로전환기를 통과한 후의 운전 취급은?",
+      "answer": "[참고] 산본역 상선, 금정역 하선 운전 취급\n열차의 후부가 맨 바깥쪽 선로전환기를 통과 후\n1. 상선 산본역을 발차 시는 45km/h 이하에서 제동 감도 시험(제동체결 속도에서 10km/h\n이상 감속)\n2. 하선 금정역 발차 시는 제한속도 40km/h 이하로 운전"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-30",
+      "originalNumber": "6.30",
+      "page": 15,
+      "endPage": 15,
+      "pageNumbers": [
+        15
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-30-1-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-30-1",
+      "number": "참고 6.30-1",
+      "question": "Pan 하강·제동 핸들 취거 후 EOCN을 ON 취급하면 어떤 현상이 나타나는가?",
+      "answer": "1. Pan 하강, 제동 핸들 취거하고 EOCN ON(EON. EORN. ON) 취급 후 현상\n① 객실 방공등 4개 점등(실제 차는 6개 점등)\n② 열차 무선전화 가능(WTS ON 확인)\n③ 실내 방송 및 차내 전화 가능(연락 버저 사용 불능)"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-30",
+      "originalNumber": "6.30",
+      "page": 15,
+      "endPage": 15,
+      "pageNumbers": [
+        15
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-30-1-2",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-30-1",
+      "number": "참고 6.30-2",
+      "question": "단전 후 급전 시 MCBOS-MCBCS를 취급하는 이유는?",
+      "answer": "2. 단전 후 급전 시 MCBOS-MCBCS 취급하는 이유\n- 7, 8선을 끊어 MCBR2 자기 여자회로를 차단하기 위해 취급"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-30",
+      "originalNumber": "6.30",
+      "page": 15,
+      "endPage": 16,
+      "pageNumbers": [
+        15,
+        16
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-30-1-3",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-30-1",
+      "number": "참고 6.30-3",
+      "question": "운행 중 단전 시 기관사의 조치는?",
+      "answer": "3. 운행 중 단전 시 기관사의 조치\n① 관제사에게 단전 여부 및 급전 시기 확인, 차장에게 안내 방송 요청\n\n② 무동력으로 최근 정거장까지 운행하면서, 급전이 되면 MCBOS-MCBCS 취급하여 MCB 투입\n③ 만약 회생제동 중 단전이 되었으면, 급전 후 MCBOS-RS–3초 후 MCBCS 취급\n하여 C/I 인버터 정지를 복귀"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-35",
+      "originalNumber": "6.35",
+      "page": 17,
+      "endPage": 17,
+      "pageNumbers": [
+        17
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-35-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-35-1",
+      "number": "참고 6.35",
+      "question": "교류 모진(DCArr 방전)을 확인하는 방법은?",
+      "answer": "[참고] 교류 모진(DCArr 방전) 확인 방법\n모니터 또는 Fault등, 차측등(백색)이 점등되나, 승객 제보(굉음) 등으로 확인"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-36",
+      "originalNumber": "6.36",
+      "page": 18,
+      "endPage": 18,
+      "pageNumbers": [
+        18
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-36-1-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-36-1",
+      "number": "참고 6.36-1",
+      "question": "절연 구간에서 MCB가 양 소등되는 경우는?",
+      "answer": "1. 절연 구간에서 MCB 양 소등되는 경우\n- 열차 편성 중 MCB 기계적 고착 또는 MCBN1 차단(직류 전환 시에 한함) 차량이\n있으면 MCB 양 소등됨."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-36",
+      "originalNumber": "6.36",
+      "page": 18,
+      "endPage": 18,
+      "pageNumbers": [
+        18
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-36-1-2",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-36-1",
+      "number": "참고 6.36-2",
+      "question": "직류 모진이란?",
+      "answer": "2. 직류 모진이란, 직류의 대(大)전류가 주 변압기 1차 측으로 들어와 주 퓨즈가 용손되는 것."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-36",
+      "originalNumber": "6.36",
+      "page": 18,
+      "endPage": 18,
+      "pageNumbers": [
+        18
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-36-1-3",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-36-1",
+      "number": "참고 6.36-3",
+      "question": "직류 모진 시 현상과 조치는?",
+      "answer": "3. 직류 모진 시 작동 기기와 현상 및 조치\n- 주 퓨즈(MFs) 용손으로 60초 후 MCB 차단되므로, 최근 정거장에 도착하여 해당 차\n완전 부동 취급 후 연장 급전하고 운전"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-36",
+      "originalNumber": "6.36",
+      "page": 18,
+      "endPage": 18,
+      "pageNumbers": [
+        18
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-36-1-4",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-36-1",
+      "number": "참고 6.36-4",
+      "question": "주 퓨즈 용단 시 현상과 복귀 회로는?",
+      "answer": "4. 주 퓨즈 용손 시의 현상은 주 퓨즈의 빨간색 단추가 약 30mm 튀어나오고, MTOM\n정지로 60초 후 MTOFTR이 작동되어 MTAR 여자로 MCB가 차단 됨."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-37",
+      "originalNumber": "6.37",
+      "page": 18,
+      "endPage": 18,
+      "pageNumbers": [
+        18
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-37-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-37-1",
+      "number": "참고 6.37",
+      "question": "EPanDS를 취급해야 하는 시기는?",
+      "answer": "[참고] EPanDS 취급 시기\n전차선 장애 발견 시, 교-직 전환 중 MCB 고장 발생 시, 운전 취급 중 또는 검수 작업 시\n등 급히 Pan을 하강할 필요가 있을 때 취급"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-43",
+      "originalNumber": "6.43",
+      "page": 20,
+      "endPage": 20,
+      "pageNumbers": [
+        20
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-43-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-43-1",
+      "number": "참고 6.43",
+      "question": "기관사 안전장치(DSD)의 경고 시간과 미복귀 시 동작은?",
+      "answer": "[참고]\n기관사 안전장치(DSD)가 작동하면 5초 동안 경고음(“안전 운행 합시다.”)이 울리고, 복귀\n되지 않으면 EMR2를 무여자 시켜 비상제동이 작용"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-53",
+      "originalNumber": "6.53",
+      "page": 22,
+      "endPage": 22,
+      "pageNumbers": [
+        22
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-53-1-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-53-1",
+      "number": "참고 6.53-1",
+      "question": "출입문 스위치(DS)의 기계적 접점과 각각의 동작 조건은?",
+      "answer": "1. 출입문 스위치(DS) 기계적 접점\n① DILP : 출입문 7.5mm 이하 닫혔을 때 접촉, DOOR등 점등, 동력 운전 회로(DIR1,\n2) 구성\n② DLP : 출입문 12.5mm 이상 열렸을 때 접촉, 출입문 차측등(적색) 점등, 모니터\n출입문 열림 표시\n③ DRO : 출입문 12.5mm 이상 열렸을 때 접촉, 해당 출입문 재개폐 회로 구성"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-53",
+      "originalNumber": "6.53",
+      "page": 22,
+      "endPage": 22,
+      "pageNumbers": [
+        22
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-53-1-2",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-53-1",
+      "number": "참고 6.53-2",
+      "question": "출입문 공기압과 출입문 관련 Cock의 구성은?",
+      "answer": "2. 출입문 제어 공기압력은 5kg/㎠이고, 출입문 Cock는 개별 수동 Cock 8개, 전체 차단\nCock는 객실 내부 1개, 외부 2개, 총11개."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-53",
+      "originalNumber": "6.53",
+      "page": 22,
+      "endPage": 22,
+      "pageNumbers": [
+        22
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-53-1-3",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-53-1",
+      "number": "참고 6.53-3",
+      "question": "교재에 기재된 출입문 재개폐 스위치(DROS)의 참고사항은?",
+      "answer": "3. 현재 안전문 오(誤)작동 발생으로 DROS 취급 회로 단선함."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-55",
+      "originalNumber": "6.55",
+      "page": 23,
+      "endPage": 23,
+      "pageNumbers": [
+        23
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-55-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-55-1",
+      "number": "참고 6.55",
+      "question": "ATC 장치 고장 시 취급은?",
+      "answer": "[참고] ATC 장치 고장 시 취급 ⁴⁾\n1. 즉시 정차하여 고장 내용을 역장 또는 관제사에게 보고하고 지시를 받음.\n(차상 장치 고장을 통보받은 관제사는 가장 가까운 정거장까지 지령 운전 지시)\n2. 지시를 받을 수 없는 경우, 차상 장치 고장 시는 통신 가능 지점까지 확인 운전하고,\n지상 장치 고장 시는 해당 구간을 확인 운전"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-68",
+      "originalNumber": "6.68",
+      "page": 28,
+      "endPage": 28,
+      "pageNumbers": [
+        28
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-68-1-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-68-1",
+      "number": "참고 6.68-1",
+      "question": "Pick Up Coil의 역할은?",
+      "answer": "1. Pick Up Coil : 궤도회로로부터 지령 속도 수신"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-68",
+      "originalNumber": "6.68",
+      "page": 28,
+      "endPage": 28,
+      "pageNumbers": [
+        28
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-68-1-2",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-68-1",
+      "number": "참고 6.68-2",
+      "question": "속도발전기의 역할은?",
+      "answer": "2. 속도발전기 : 차축의 회전수에 따라 발생하는 주파수로 실제 운행 속도 검지"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-68",
+      "originalNumber": "6.68",
+      "page": 28,
+      "endPage": 28,
+      "pageNumbers": [
+        28
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-68-1-3",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-68-1",
+      "number": "참고 6.68-3",
+      "question": "ATC Rack의 역할은?",
+      "answer": "3. ATC Rack : ATC함으로 지령 속도와 실제 속도를 비교하여 운전 상태 감시"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-68",
+      "originalNumber": "6.68",
+      "page": 28,
+      "endPage": 28,
+      "pageNumbers": [
+        28
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-68-1-4",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-68-1",
+      "number": "참고 6.68-4",
+      "question": "ADU의 역할은?",
+      "answer": "4. ADU : 차내 신호기로 실제 속도와 지령 속도 현시"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-76",
+      "originalNumber": "6.76",
+      "page": 30,
+      "endPage": 30,
+      "pageNumbers": [
+        30
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "reference-textbook-76-1",
+      "kind": "reference",
+      "referenceBlock": "reference-textbook-76-1",
+      "number": "참고 6.76",
+      "question": "무선전화기를 이용한 방호 방법은?",
+      "answer": "[참고] 무선전화기 방호 방법\n- 열차 무선전화 채널을 비상 통화 위치로 이동\n- “○열차 ○○~△△역 간 상(하)선 무선 방호”라고 3~5회 반복 통보"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-64",
+      "originalNumber": "6.64",
+      "page": 26,
+      "endPage": 26,
+      "pageNumbers": [
+        26
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "scenario-textbook-64-1",
+      "kind": "scenario",
+      "number": "상황 6.64-1",
+      "question": "교-교 절연 구간 · 절연 구간에 근접하여 정차 시 현상과 조치는?",
+      "answer": "1) 절연 구간에 근접하여 정차\n① 현상은 MCB ON 점등, AC등 점등, SIV등 점등\n② 조치는 관제사 퇴행 운전 승인 후 차장 전호에 의해 25km/h 이하로 인출 지점까지 후진 후,\n다시 동력 운전 취급하여 절연 구간 통과"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-64",
+      "originalNumber": "6.64",
+      "page": 26,
+      "endPage": 26,
+      "pageNumbers": [
+        26
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "scenario-textbook-64-2",
+      "kind": "scenario",
+      "number": "상황 6.64-2",
+      "question": "교-교 절연 구간 · 전부 Pan이 절연 구간에 정차 시 현상과 조치는?",
+      "answer": "2) 전부 Pan이 절연 구간에 정차\n① 현상은 MCB 양 소등, AC등 점등, SIV등 점등\n② 조치는 관제사 퇴행 운전 승인 후 차장 전호에 의해 25km/h 이하로 인출 지점까지 퇴행 후\nMCBOS-MCBCS 취급하여 MCB 투입 후 다시 동력 운전 취급으로 절연 구간 통과"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-64",
+      "originalNumber": "6.64",
+      "page": 26,
+      "endPage": 26,
+      "pageNumbers": [
+        26
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "scenario-textbook-64-3",
+      "kind": "scenario",
+      "number": "상황 6.64-3",
+      "question": "교-교 절연 구간 · 중간 Pan이 절연 구간에 정차 시 현상과 조치는?",
+      "answer": "3) 중간 Pan이 절연 구간에 정차\n① 현상은 MCB 양 소등, AC등 점등, SIV등 점등\n② 조치는 후부 M'차 배전반 내 ADAN, ADDN, PanVN을 차단하여 후부 Pan을 내리고, 절연\n구간 통과 후 최근 정거장 도착, 관계차단기 복귀 하고 MCBOS-MCBCS 취급하여 MCB\n투입 후 운전"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-64",
+      "originalNumber": "6.64",
+      "page": 26,
+      "endPage": 26,
+      "pageNumbers": [
+        26
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "scenario-textbook-64-4",
+      "kind": "scenario",
+      "number": "상황 6.64-4",
+      "question": "교-교 절연 구간 · 후부 Pan이 절연 구간에 정차 시 현상과 조치는?",
+      "answer": "4) 후부 Pan이 절연 구간에 정차\n① 현상은 MCB 양 소등, AC등 점등, SIV등 점등\n② 조치는 그대로 동력 운전 취급하여 인출\n절연 구간 통과 후 MCBOS-MCBCS 취급하여 MCB 투입 후 운전"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-65",
+      "originalNumber": "6.65",
+      "page": 27,
+      "endPage": 27,
+      "pageNumbers": [
+        27
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "scenario-textbook-65-1",
+      "kind": "scenario",
+      "number": "상황 6.65-1",
+      "question": "교-직 절연 구간 · 전부 Pan이 절연 구간에 정차(또는 근접하여 정차) 시 현상과 조치는?",
+      "answer": "1) 전부 Pan이 절연 구간에 정차(또는 근접하여 정차)\n① 현상은 MCB OFF등 점등, AC등 또는 DC등 점등, SIV등 소등\n② 조치는 관제사의 퇴행 운전 승인 후 ADS를 절환 전의 위치로 다시 절환하여 MCB 투입시키고\n차장 전호에 의해 15km/h 이하로 인출 가능 지점까지 퇴행 후, 다시 동력 운전 취급 하여\n절연 구간 통과"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-65",
+      "originalNumber": "6.65",
+      "page": 27,
+      "endPage": 27,
+      "pageNumbers": [
+        27
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "scenario-textbook-65-2",
+      "kind": "scenario",
+      "number": "상황 6.65-2",
+      "question": "교-직 절연 구간 · 중간 Pan 및 후부 Pan이 절연 구간에 정차 시 현상과 조치는?",
+      "answer": "2) 중간 Pan 및 후부 Pan이 절연 구간에 정차\n① 현상은 MCB 양 소등, AC등 및 DC등 점등, SIV등 점등\n② 조치는 그대로 동력 운전 취급하여 절연 구간 통과"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-65",
+      "originalNumber": "6.65",
+      "page": 27,
+      "endPage": 27,
+      "pageNumbers": [
+        27
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "scenario-textbook-65-3",
+      "kind": "scenario",
+      "number": "상황 6.65-3",
+      "question": "교-직 절연 구간 · 후부 Pan이 절연 구간에 정차 시 현상과 조치는?",
+      "answer": "3) 후부 Pan이 절연 구간에 정차\n① 현상은 MCB 양 소등, AC등 또는 DC등 점등, SIV등 점등\n② 조치는 그대로 동력 운전 취급하여 절연 구간 통과"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-82",
+      "originalNumber": "6.82",
+      "page": 33,
+      "endPage": 33,
+      "pageNumbers": [
+        33
+      ],
+      "imagePages": [
+        33
+      ],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "sign-textbook-82-1",
+      "kind": "sign",
+      "number": "표지 01",
+      "question": "이 표지의 명칭과 의미를 설명하세요.",
+      "answer": "교-직 절연 구간 표지\n\n- 교-직 절연 구간의 시작 지점에 설치\n- 표지 설치 구간을 동력 운전하여서는 아니 된다.",
+      "signName": "교-직 절연 구간 표지",
+      "image": "signs/sign-01.png",
+      "crop": {
+        "page": 33,
+        "x": 210,
+        "y": 337,
+        "width": 118,
+        "height": 96,
+        "scaleTo": 1400
+      },
+      "sourceDescription": "- 교-직 절연 구간의 시작 지점에 설치\n- 표지 설치 구간을 동력 운전하여서는 아니 된다."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-82",
+      "originalNumber": "6.82",
+      "page": 33,
+      "endPage": 33,
+      "pageNumbers": [
+        33
+      ],
+      "imagePages": [
+        33
+      ],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "sign-textbook-82-2",
+      "kind": "sign",
+      "number": "표지 02",
+      "question": "이 표지의 명칭과 의미를 설명하세요.",
+      "answer": "타행 표지\n\n- 교류/직류 절연 구간의 150~200m 앞쪽, 교류/교류 절연\n구간의 100~200m 앞쪽에 설치\n- 타행 표지 설치 지점부터 역행 표지 설치 지점까지 무동력\n운전을 하여야 한다.",
+      "signName": "타행 표지",
+      "image": "signs/sign-02.png",
+      "crop": {
+        "page": 33,
+        "x": 210,
+        "y": 447,
+        "width": 118,
+        "height": 98,
+        "scaleTo": 1400
+      },
+      "sourceDescription": "- 교류/직류 절연 구간의 150~200m 앞쪽, 교류/교류 절연\n구간의 100~200m 앞쪽에 설치\n- 타행 표지 설치 지점부터 역행 표지 설치 지점까지 무동력\n운전을 하여야 한다."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-82",
+      "originalNumber": "6.82",
+      "page": 33,
+      "endPage": 33,
+      "pageNumbers": [
+        33
+      ],
+      "imagePages": [
+        33
+      ],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "sign-textbook-82-3",
+      "kind": "sign",
+      "number": "표지 03",
+      "question": "이 표지의 명칭과 의미를 설명하세요.",
+      "answer": "절연 구간 예고 표지\n\n- 가선 절연 구간 표지 있음을 예고하기 위하여 절연 구간\n표지 400m 앞쪽에 설치",
+      "signName": "절연 구간 예고 표지",
+      "image": "signs/sign-03.png",
+      "crop": {
+        "page": 33,
+        "x": 210,
+        "y": 559,
+        "width": 118,
+        "height": 98,
+        "scaleTo": 1400
+      },
+      "sourceDescription": "- 가선 절연 구간 표지 있음을 예고하기 위하여 절연 구간\n표지 400m 앞쪽에 설치"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-82",
+      "originalNumber": "6.82",
+      "page": 33,
+      "endPage": 33,
+      "pageNumbers": [
+        33
+      ],
+      "imagePages": [
+        33
+      ],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "sign-textbook-82-4",
+      "kind": "sign",
+      "number": "표지 04",
+      "question": "이 표지의 명칭과 의미를 설명하세요.",
+      "answer": "교-교 절연 구간 표지\n\n- 교-교 절연 구간의 시작 지점에 설치\n- 표지 설치 구간을 동력 운전하여서는 아니 된다.",
+      "signName": "교-교 절연 구간 표지",
+      "image": "signs/sign-04.png",
+      "crop": {
+        "page": 33,
+        "x": 210,
+        "y": 671,
+        "width": 118,
+        "height": 97,
+        "scaleTo": 1400
+      },
+      "sourceDescription": "- 교-교 절연 구간의 시작 지점에 설치\n- 표지 설치 구간을 동력 운전하여서는 아니 된다."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-82",
+      "originalNumber": "6.82",
+      "page": 33,
+      "endPage": 33,
+      "pageNumbers": [
+        33
+      ],
+      "imagePages": [
+        33
+      ],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "sign-textbook-82-5",
+      "kind": "sign",
+      "number": "표지 05",
+      "question": "이 표지의 명칭과 의미를 설명하세요.",
+      "answer": "전기동차용 역행 표지\n\n- 전차선로의 절연 구간을 지난 지점에 설치\n- 역행 표지 설치 지점부터는 동력 운전할 수 있다.",
+      "signName": "전기동차용 역행 표지",
+      "image": "signs/sign-05.png",
+      "crop": {
+        "page": 33,
+        "x": 210,
+        "y": 782,
+        "width": 118,
+        "height": 98,
+        "scaleTo": 1400
+      },
+      "sourceDescription": "- 전차선로의 절연 구간을 지난 지점에 설치\n- 역행 표지 설치 지점부터는 동력 운전할 수 있다."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-82",
+      "originalNumber": "6.82",
+      "page": 33,
+      "endPage": 33,
+      "pageNumbers": [
+        33
+      ],
+      "imagePages": [
+        33
+      ],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "sign-textbook-82-6",
+      "kind": "sign",
+      "number": "표지 06",
+      "question": "이 표지의 명칭과 의미를 설명하세요.",
+      "answer": "열차 정지 표지\n\n- 정거장에서 열차 또는 구내 운전 차량이 상시 정차할 지점\n표시\n- 열차 또는 차량은 설치 지점 전방에 정차하여야 한다.",
+      "signName": "열차 정지 표지",
+      "image": "signs/sign-06.png",
+      "crop": {
+        "page": 33,
+        "x": 210,
+        "y": 894,
+        "width": 118,
+        "height": 98,
+        "scaleTo": 1400
+      },
+      "sourceDescription": "- 정거장에서 열차 또는 구내 운전 차량이 상시 정차할 지점\n표시\n- 열차 또는 차량은 설치 지점 전방에 정차하여야 한다."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-82",
+      "originalNumber": "6.82",
+      "page": 33,
+      "endPage": 33,
+      "pageNumbers": [
+        33
+      ],
+      "imagePages": [
+        33
+      ],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "sign-textbook-82-7",
+      "kind": "sign",
+      "number": "표지 07",
+      "question": "이 표지의 명칭과 의미를 설명하세요.",
+      "answer": "차량 정지 표지\n\n- 정거장에서 구내 운전 또는 입환 차량을 정지시키거나 운전\n구간의 끝 지점을 표시할 필요가 있는 지점에 설치\n- 차량은 설치 지점 전방에 정차하여야 한다.",
+      "signName": "차량 정지 표지",
+      "image": "signs/sign-07.png",
+      "crop": {
+        "page": 33,
+        "x": 210,
+        "y": 1006,
+        "width": 118,
+        "height": 98,
+        "scaleTo": 1400
+      },
+      "sourceDescription": "- 정거장에서 구내 운전 또는 입환 차량을 정지시키거나 운전\n구간의 끝 지점을 표시할 필요가 있는 지점에 설치\n- 차량은 설치 지점 전방에 정차하여야 한다."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-82",
+      "originalNumber": "6.82",
+      "page": 33,
+      "endPage": 33,
+      "pageNumbers": [
+        33
+      ],
+      "imagePages": [
+        33
+      ],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "sign-textbook-82-8",
+      "kind": "sign",
+      "number": "표지 08",
+      "question": "이 표지의 명칭과 의미를 설명하세요.",
+      "answer": "차량 접촉 한계 표지\n\n- 선로가 분기 또는 교차하는 지점에는 선로상의 차량이 인접\n선로를 운전하는 차량을 지장하지 않는 한계를 표시\n- 차량은 “차량 접촉 한계 표지 내”에 유치하여야 한다.",
+      "signName": "차량 접촉 한계 표지",
+      "image": "signs/sign-08.png",
+      "crop": {
+        "page": 33,
+        "x": 210,
+        "y": 1118,
+        "width": 118,
+        "height": 98,
+        "scaleTo": 1400
+      },
+      "sourceDescription": "- 선로가 분기 또는 교차하는 지점에는 선로상의 차량이 인접\n선로를 운전하는 차량을 지장하지 않는 한계를 표시\n- 차량은 “차량 접촉 한계 표지 내”에 유치하여야 한다."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-82",
+      "originalNumber": "6.82",
+      "page": 34,
+      "endPage": 34,
+      "pageNumbers": [
+        34
+      ],
+      "imagePages": [
+        34
+      ],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "sign-textbook-82-9",
+      "kind": "sign",
+      "number": "표지 09",
+      "question": "이 표지의 명칭과 의미를 설명하세요.",
+      "answer": "차막이 표지\n\n- 본선 또는 주요한 측선의 끝 지점에 있는 차막이에 설치\n- 차량은 이 지점을 넘을 수 없다.",
+      "signName": "차막이 표지",
+      "image": "signs/sign-09.png",
+      "crop": {
+        "page": 34,
+        "x": 195,
+        "y": 275,
+        "width": 103,
+        "height": 105,
+        "scaleTo": 1400
+      },
+      "sourceDescription": "- 본선 또는 주요한 측선의 끝 지점에 있는 차막이에 설치\n- 차량은 이 지점을 넘을 수 없다."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-82",
+      "originalNumber": "6.82",
+      "page": 34,
+      "endPage": 34,
+      "pageNumbers": [
+        34
+      ],
+      "imagePages": [
+        34
+      ],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "sign-textbook-82-10",
+      "kind": "sign",
+      "number": "표지 10",
+      "question": "이 표지의 명칭과 의미를 설명하세요.",
+      "answer": "전차선 구분 표지\n\n- 급전 구분 장치의 시작 지점에 설치\n- 운전 중 부득이한 사유로 정차할 경우, Pan이 전차선 구분\n장치에 걸리지 않도록 하여야 한다.",
+      "signName": "전차선 구분 표지",
+      "image": "signs/sign-10.png",
+      "crop": {
+        "page": 34,
+        "x": 195,
+        "y": 394,
+        "width": 103,
+        "height": 106,
+        "scaleTo": 1400
+      },
+      "sourceDescription": "- 급전 구분 장치의 시작 지점에 설치\n- 운전 중 부득이한 사유로 정차할 경우, Pan이 전차선 구분\n장치에 걸리지 않도록 하여야 한다."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-82",
+      "originalNumber": "6.82",
+      "page": 34,
+      "endPage": 34,
+      "pageNumbers": [
+        34
+      ],
+      "imagePages": [
+        34
+      ],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "sign-textbook-82-11",
+      "kind": "sign",
+      "number": "표지 11",
+      "question": "이 표지의 명칭과 의미를 설명하세요.",
+      "answer": "가선 종단 표지\n\n- 전차선로가 끝나는 지점을 표시할 필요가 있는 지점에 설치\n- 전동차는 가선 종단 표지를 넘어서 진행할 수 없다.",
+      "signName": "가선 종단 표지",
+      "image": "signs/sign-11.png",
+      "crop": {
+        "page": 34,
+        "x": 195,
+        "y": 514,
+        "width": 103,
+        "height": 106,
+        "scaleTo": 1400
+      },
+      "sourceDescription": "- 전차선로가 끝나는 지점을 표시할 필요가 있는 지점에 설치\n- 전동차는 가선 종단 표지를 넘어서 진행할 수 없다."
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-82",
+      "originalNumber": "6.82",
+      "page": 34,
+      "endPage": 34,
+      "pageNumbers": [
+        34
+      ],
+      "imagePages": [
+        34
+      ],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "sign-textbook-82-12",
+      "kind": "sign",
+      "number": "표지 12",
+      "question": "이 표지의 명칭과 의미를 설명하세요.",
+      "answer": "장내 경계 표지\n\n- 차내신호 폐색식(ATC) 시행 구간에서 정거장에 진입하는\n열차에 대하여 장내 진로의 경계를 표시",
+      "signName": "장내 경계 표지",
+      "image": "signs/sign-12.png",
+      "crop": {
+        "page": 34,
+        "x": 195,
+        "y": 634,
+        "width": 103,
+        "height": 105,
+        "scaleTo": 1400
+      },
+      "sourceDescription": "- 차내신호 폐색식(ATC) 시행 구간에서 정거장에 진입하는\n열차에 대하여 장내 진로의 경계를 표시"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-82",
+      "originalNumber": "6.82",
+      "page": 34,
+      "endPage": 34,
+      "pageNumbers": [
+        34
+      ],
+      "imagePages": [
+        34
+      ],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "sign-textbook-82-13",
+      "kind": "sign",
+      "number": "표지 13",
+      "question": "이 표지의 명칭과 의미를 설명하세요.",
+      "answer": "출발 경계 표지\n\n- 차내신호 폐색식(ATC) 시행 구간의 정거장에서 진출하는\n열차에 대하여 출발 진로의 경계를 표시",
+      "signName": "출발 경계 표지",
+      "image": "signs/sign-13.png",
+      "crop": {
+        "page": 34,
+        "x": 195,
+        "y": 753,
+        "width": 103,
+        "height": 106,
+        "scaleTo": 1400
+      },
+      "sourceDescription": "- 차내신호 폐색식(ATC) 시행 구간의 정거장에서 진출하는\n열차에 대하여 출발 진로의 경계를 표시"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-82",
+      "originalNumber": "6.82",
+      "page": 34,
+      "endPage": 34,
+      "pageNumbers": [
+        34
+      ],
+      "imagePages": [
+        34
+      ],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "sign-textbook-82-14",
+      "kind": "sign",
+      "number": "표지 14",
+      "question": "이 표지의 명칭과 의미를 설명하세요.",
+      "answer": "폐색 경계표지\n\n- 차내신호 폐색식(ATC) 시행 구간에서 궤도회로 경계 지점에\n순차적으로 설치",
+      "signName": "폐색 경계표지",
+      "image": "signs/sign-14.png",
+      "crop": {
+        "page": 34,
+        "x": 195,
+        "y": 873,
+        "width": 103,
+        "height": 106,
+        "scaleTo": 1400
+      },
+      "sourceDescription": "- 차내신호 폐색식(ATC) 시행 구간에서 궤도회로 경계 지점에\n순차적으로 설치"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-82",
+      "originalNumber": "6.82",
+      "page": 34,
+      "endPage": 34,
+      "pageNumbers": [
+        34
+      ],
+      "imagePages": [
+        34
+      ],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "sign-textbook-82-15",
+      "kind": "sign",
+      "number": "표지 15",
+      "question": "이 표지의 명칭과 의미를 설명하세요.",
+      "answer": "폐색신호기 식별 표지\n\n- 자동폐색신호기를 식별할 수 있도록, 도착역의 장내신호기\n다음 폐색신호기부터 순차적으로 번호 부여",
+      "signName": "폐색신호기 식별 표지",
+      "image": "signs/sign-15.png",
+      "crop": {
+        "page": 34,
+        "x": 195,
+        "y": 993,
+        "width": 103,
+        "height": 106,
+        "scaleTo": 1400
+      },
+      "sourceDescription": "- 자동폐색신호기를 식별할 수 있도록, 도착역의 장내신호기\n다음 폐색신호기부터 순차적으로 번호 부여"
+    },
+    {
+      "source": "textbook",
+      "parentId": "textbook-82",
+      "originalNumber": "6.82",
+      "page": 34,
+      "endPage": 34,
+      "pageNumbers": [
+        34
+      ],
+      "imagePages": [
+        34
+      ],
+      "answerKind": "text",
+      "duplicateNumber": false,
+      "id": "sign-textbook-82-16",
+      "kind": "sign",
+      "number": "표지 16",
+      "question": "이 표지의 명칭과 의미를 설명하세요.",
+      "answer": "전차선로 작업 표지\n\n- 전기 직원이 역 구내·외 본선에서 작업을 할 때 그 작업\n지점을 표시하기 위하여 작업 지점 200m 전방에 설치\n- 작업 표지 확인 시 주의 기적을 울려 열차 접근을 알려야\n한다.",
+      "signName": "전차선로 작업 표지",
+      "image": "signs/sign-16.png",
+      "crop": {
+        "page": 34,
+        "x": 195,
+        "y": 1113,
+        "width": 103,
+        "height": 105,
+        "scaleTo": 1400
+      },
+      "sourceDescription": "- 전기 직원이 역 구내·외 본선에서 작업을 할 때 그 작업\n지점을 표시하기 위하여 작업 지점 200m 전방에 설치\n- 작업 표지 확인 시 주의 기적을 울려 열차 접근을 알려야\n한다."
+    }
+  ]
+}

@@ -9,5 +9,6 @@ if (revision === 'local') {
   try { revision = execFileSync('git', ['rev-parse', 'HEAD'], {cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore']}).trim(); } catch {}
 }
 const {questions} = JSON.parse(await readFile(`${root}public/questions.json`, 'utf8'));
-await writeFile(`${root}dist/version.json`, JSON.stringify({revision, questionCount: questions.length}, null, 2) + '\n');
+const supplemental = JSON.parse(await readFile(`${root}public/supplemental.json`, 'utf8'));
+await writeFile(`${root}dist/version.json`, JSON.stringify({revision, questionCount: questions.length + supplemental.questions.length, counts:{original:questions.length, ...supplemental.counts}}, null, 2) + '\n');
 console.log('정적 사이트 빌드 완료: dist/');

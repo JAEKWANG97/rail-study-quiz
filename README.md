@@ -2,6 +2,10 @@
 
 기능교재 82문항 + 신규 구술 문답서 90문항으로 연습하는 정적 모바일 웹앱. 원문 PDF 45페이지의 미리보기와 문항별 페이지 연결을 포함합니다.
 
+2026-10-02 추가: 참고사항 46문항, 교-교·교-직 절연 구간 세부 상황 7문항, 실제 표지 그림 16문항. 기존 172문항을 포함해 총 241문항입니다. `학습 설정 → 출제 유형`에서 원문/참고사항/세부 상황/표지 그림/전체 혼합을 선택합니다. 기본은 기존 원문 문항이며 유형 선택은 저장됩니다.
+
+원문 `public/questions.json`과 기존 문항 ID·학습 기록은 그대로 보존하고 추가 문제만 `public/supplemental.json`에 분리했습니다. 참고사항 29개 묶음은 내용을 빠뜨리지 않고 46개 독립 문제로 나눴습니다. 세부 상황은 조건·현상·조치를 함께 보존합니다. 표지는 원본 PDF의 형상 열만 직접 잘라 문제에 표시하며, 명칭·설명은 답안 확인 전에는 화면과 접근성 트리에서 숨깁니다. 추가 문항에도 원문 번호·페이지와 PDF 연결을 제공합니다. 유형별 암기 진도를 표시하고 전체 혼합에서는 합산합니다.
+
 실행:
 
 ```sh
@@ -29,6 +33,8 @@ npm run build
 
 브라우저 회귀 검사는 `node scripts/check-browser.mjs`로 실행합니다. 현재 Mac의 기존 Playwright·Chrome 설치를 사용하며 다른 환경에서는 `PLAYWRIGHT_MODULE`과 `CHROME_BIN`을 지정합니다. 결과는 `tmp/qa/browser-report.json`에 저장됩니다.
 
+추가 유형 검사는 `node scripts/check-supplements-browser.mjs`로 실행합니다. 기존 기록 복원, MCB 독립 출제, 세부 상황 7개·그림 16개·혼합 241개 실제 순회, 정답 숨김, 320/390/1440px 화면과 원문 연결을 확인합니다. 결과는 `tmp/qa/supplements-browser-report.json`에 저장됩니다.
+
 빌드 결과 `dist/`는 상대 경로만 사용하므로 GitHub Pages 하위 경로 등 정적 호스팅에 올릴 수 있습니다. `.github/workflows/pages.yml`은 `main` 푸시 시 테스트와 빌드를 거쳐 GitHub Pages에 자동 배포합니다. 저장소의 Pages 설정은 GitHub Actions를 사용합니다.
 
 배포 대상: https://jaekwang97.github.io/rail-study-quiz/
@@ -38,3 +44,5 @@ npm run build
 배포 후 `npm run check:deployment`로 실제 서버의 커밋과 모든 정적 파일 해시를 확인할 수 있습니다. 다른 주소는 `DEPLOYMENT_URL`, 다른 커밋은 `EXPECTED_REVISION`으로 지정합니다. `BROWSER_TEST_URL=https://jaekwang97.github.io/rail-study-quiz/ node scripts/check-browser.mjs`로 배포본의 기능 회귀 검사를 실행합니다.
 
 원문 변경 시 Poppler의 `pdftotext -layout`로 `tmp/pdfs/oral.txt`, `tmp/pdfs/textbook.txt`를 갱신하고 `npm run extract`를 실행합니다. `pdftoppm -scale-to 1400 -png`로 `public/page-previews/oral-01.png` 등 미리보기를 함께 갱신합니다. 데이터 검증은 `npm test`를 실행합니다.
+
+추가 데이터와 표지 이미지 재생성: Poppler가 설치된 환경에서 `npm run supplements`. 기존 172문항 파일은 수정하지 않습니다. 참고 질문 제목은 스크립트의 명시적 목록으로 관리하고 답안은 원문 부분 문자열을 사용합니다. 표지 명칭은 원문 표와 대조한 목록, 설명은 해당 행의 관련 내용 열에서 추출합니다. 그림 좌표는 현재 원본 PDF에 고정되어 있으므로 원문 변경 시 전부 재검토해야 합니다. 속도표는 텍스트 추출의 열 배치 한계 때문에 원문 이미지도 제공합니다. 학습 자료는 제공된 교재 기준이며 실제 운전 지침을 대신하지 않습니다.
