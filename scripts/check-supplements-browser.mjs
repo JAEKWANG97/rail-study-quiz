@@ -18,7 +18,8 @@ context.on('page',page=>{
 const ready=page=>page.waitForSelector('body[data-ready="true"]');
 const id=page=>page.locator('body').getAttribute('data-current-id');
 const position=page=>page.locator('#question-position').textContent();
-async function search(page,value){await page.locator('#search').fill(value);await page.locator('#open-library').click();await page.locator('#close-library').click();}
+async function settings(page){if(!await page.locator('.settings-panel').evaluate(element=>element.open))await page.locator('.settings-panel > summary').click();}
+async function search(page,value){await settings(page);await page.locator('#search').fill(value);await page.locator('#open-library').click();await page.locator('#close-library').click();}
 async function shot(page,name,fullPage=true){const file=`${root}tmp/qa/${name}.png`;await page.screenshot({path:file,fullPage});screenshots.push(file);}
 try{
   await context.addInitScript(()=>{
@@ -141,6 +142,7 @@ try{
       if(kind==='reference')await search(page,'MCB란');
       const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
       assert.equal(overflow,false,`${width}/${kind} 문제 가로 넘침`);
+      await settings(page);
       await page.locator('#open-library').click();
       assert.equal(await page.locator('#library-dialog').evaluate(element=>element.scrollWidth>element.clientWidth),false);
       await page.locator('.library-item').first().click();

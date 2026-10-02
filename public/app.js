@@ -61,9 +61,9 @@ function resetQuestion() {
   $('visual-reference').open = false;
 }
 
-function scrollToQuestion() {
+function scrollToQuestion(force = false) {
   const card = document.querySelector('.question-card');
-  if (matchMedia('(max-width: 640px)').matches && card.getBoundingClientRect().top < 0) {
+  if (matchMedia('(max-width: 640px)').matches && (force || card.getBoundingClientRect().top < 0)) {
     card.scrollIntoView({block: 'start', behavior: 'auto'});
   }
 }
@@ -115,8 +115,9 @@ function renderCounts() {
   meter.setAttribute('aria-valuenow', learned);
   $('review-count').textContent = `다시 보기 ${marks.filter(mark => mark.status === 'review').length}`;
   $('starred-count').textContent = `별표 ${marks.filter(mark => mark.starred).length}`;
-  $('bank-count').textContent = `${progressQuestions.length}문항`;
-  $('progress-label').textContent = state.kind === 'all' ? '전체 유형 암기' : `${kindNames[state.kind]} 암기`;
+  $('total-count').textContent = `전체 ${data.questions.length}문항`;
+  $('bank-count').textContent = `현재 ${selectedQuestions().length}문항`;
+  $('progress-label').textContent = state.kind === 'all' ? '모든 유형 전체 진도' : `${kindNames[state.kind]} 전체 진도`;
   for (const button of document.querySelectorAll('[data-source]')) {
     const selected = button.dataset.source === state.source;
     button.setAttribute('aria-pressed', selected);
@@ -195,6 +196,11 @@ function render() {
   $('previous').disabled = !exists || state.cursor === 0;
   $('open-library').disabled = !exists;
   $('reveal').textContent = state.answerVisible ? '정답 숨기기 ↗' : '정답 확인 ↘';
+  $('dock-reveal').disabled = !exists;
+  $('dock-reveal').textContent = state.answerVisible ? '정답 숨기기' : '정답 확인';
+  $('reveal').setAttribute('aria-expanded', state.answerVisible);
+  $('dock-reveal').setAttribute('aria-expanded', state.answerVisible);
+  document.body.dataset.kind = question?.kind || 'original';
   if (exists) {
     const mark = state.marks[question.id] || {};
     $('star').textContent = mark.starred ? '★' : '☆';
@@ -283,11 +289,27 @@ function openLibrary() {
 function connectEvents() {
   document.querySelectorAll('[data-source]').forEach(button => button.addEventListener('click', () => { state.source = button.dataset.source; save({source: state.source}); rebuildDeck(); }));
   $('scope').addEventListener('change', event => { state.scope = event.target.value; save({scope: state.scope}); rebuildDeck(); });
-  $('kind').addEventListener('change', event => { state.kind = event.target.value; save({kind: state.kind}); rebuildDeck(); });
+  $('kind').addEventListener('change', event => {
+    state.kind = event.target.value; save({kind: state.kind});
+    if (matchMedia('(max-width: 640px)').matches) document.querySelector('.settings-panel').open = false;
+    rebuildDeck();
+    scrollToQuestion();
+  });
   $('order').addEventListener('change', event => { state.order = event.target.value; save({order: state.order}); rebuildDeck(); });
   $('duration').addEventListener('change', event => { state.duration = Number(event.target.value); save({duration: state.duration}); resetQuestion(); render(); });
   $('search').addEventListener('input', () => { clearTimeout(searchTimeout); searchTimeout = setTimeout(flushSearch, 160); });
   $('reveal').addEventListener('click', reveal);
+  $('dock-reveal').addEventListener('click', () => {
+    reveal();
+    if (state.answerVisible) $('answer-section').scrollIntoView({block:'start', behavior:'auto'});
+    else scrollToQuestion(true);
+  });
+  $('apply-settings').addEventListener('click', () => {
+    document.querySelector('.settings-panel').open = false;
+    scrollToQuestion(true);
+    $('question').focus({preventScroll:true});
+    announceQuestion();
+  });
   $('next').addEventListener('click', next);
   $('previous').addEventListener('click', () => { if (state.cursor > 0) { state.cursor--; resetQuestion(); render(); scrollToQuestion(); announceQuestion(); } });
   $('reset-timer').addEventListener('click', () => { resetQuestion(); render(); announce('타이머를 다시 시작했어요.'); });
@@ -354,6 +376,7 @@ try {
   $('next').disabled = true;
   $('previous').disabled = true;
   $('pause').disabled = true;
+  $('dock-reveal').disabled = true;
   announce('문항을 불러오지 못했어요.');
   console.error(error);
 }
