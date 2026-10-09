@@ -28,7 +28,9 @@ try{
     const page=await context.newPage();await page.clock.install();await page.goto(url);await ready(page);
     assert.equal(await page.locator('#total-count').textContent(),'전체 241문항');
     assert.equal(await page.locator('#bank-count').textContent(),'현재 172문항');
-    assert.equal(await page.locator('#kind').isVisible(),true);
+    assert.equal(await page.locator('#kind').isVisible(),width>640);
+    assert.equal(await page.locator('.settings-body #kind').count(),1);
+    assert.equal(await page.locator('.sidebar > .type-picker').count(),0);
     assert.equal(await page.locator('#kind option').count(),5);
     assert.match(await page.locator('#progress-label').textContent(),/전체 진도/);
     if(width<=640)assert.equal(await page.locator('.settings-panel').evaluate(el=>el.open),false);
@@ -38,7 +40,7 @@ try{
       if(width<=640)assert.equal(await page.locator('.settings-panel').evaluate(el=>el.open),false);
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
     }
-    await page.locator('#kind').selectOption('sign');
+    await settings(page);await page.locator('#kind').selectOption('sign');
     await page.waitForFunction(()=>document.querySelector('#sign-image').naturalWidth>0);
     await page.evaluate(()=>scrollTo(0,0));
     if(width<=640){
@@ -66,7 +68,7 @@ try{
       assert.equal(await page.locator('#answer-section').isVisible(),false);
       await settings(page);await page.locator('#duration').selectOption('0');
     }else assert.equal(await page.locator('#dock-reveal').isVisible(),false);
-    await page.locator('#kind').selectOption('original');await settings(page);
+    await settings(page);await page.locator('#kind').selectOption('original');await settings(page);
     await page.locator('#star').click();await page.locator('#scope').selectOption('starred');
     assert.equal(await page.locator('#bank-count').textContent(),'현재 1문항');
     assert.equal(await page.locator('#learned-count').textContent(),'0 / 172');
@@ -82,7 +84,7 @@ try{
     layouts.push({width,height,overflow:false});
     await context.close();
   }
-  passed.push('320/390/1440px 유형·전체241 상시 발견, 유형별 현재 범위, 모바일 설정 접기');
+  passed.push('320/390/1440px 상시 출제유형 바 제거·설정 안으로 이동·기존 유형 선택 복원·유형별 현재 범위');
   passed.push('320/390px 고정 정답 버튼 44px 이상·표지 답안 이동/숨김·시간 종료/다음 초기화');
   passed.push('복습 필터 현재1과 유형 전체172 진도 구분·현재 목록241·설정/별표 유지');
   assert.deepEqual(analyticsRequests,[]);
@@ -91,6 +93,16 @@ try{
   const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
   await context.route('**/analytics-config.json',route=>route.abort());
   await page.goto(url);await ready(page);
+  assert.equal(await page.locator('#kind').inputValue(),'all');
+  assert.equal(await page.locator('#bank-count').textContent(),'현재 241문항');
+  assert.equal(await page.locator('#kind').isVisible(),false);
+  assert.ok(await page.locator('.question-card').evaluate(el=>el.getBoundingClientRect().top)<300);
+  await page.screenshot({path:`${root}tmp/qa/ux-default-390.png`});
+  await settings(page);await page.locator('#open-library').click();
+  assert.equal(await page.locator('.library-item').count(),241);
+  await page.locator('#close-library').click();
+  await page.locator('#apply-settings').click();
+  passed.push('신규 사용자 전체241 기본·모바일 유형 선택 숨김·문제 카드 상단 배치·목록241');
   await page.locator('#dock-reveal').click();assert.equal(await page.locator('#answer-section').isVisible(),true);
   await page.locator('#next').click();assert.equal(await page.locator('#answer-section').isVisible(),false);
   passed.push('통계 설정 요청 차단 시에도 문제·정답·다음 학습 계속 동작');

@@ -4,7 +4,7 @@ import { StudyStorage } from './persistence.js';
 const $ = id => document.getElementById(id);
 const allowed = {source: ['all', 'textbook', 'oral'], kind: ['all', 'original', 'reference', 'scenario', 'sign'], scope: ['all', 'unlearned', 'review', 'starred'], order: ['shuffle', 'sequential'], duration: [0, 30, 60, 90, 120]};
 const kindNames = {original:'원문 문항', reference:'참고사항', scenario:'세부 상황', sign:'표지 그림'};
-const state = {source: 'all', kind: 'original', scope: 'all', order: 'shuffle', duration: 60, query: '', marks: {}, deck: [], cursor: 0, cycle: 1, answerVisible: false, expirationHandled: false, clock: new Countdown(60)};
+const state = {source: 'all', kind: 'all', scope: 'all', order: 'shuffle', duration: 60, query: '', marks: {}, deck: [], cursor: 0, cycle: 1, answerVisible: false, expirationHandled: false, clock: new Countdown(60)};
 let data;
 let byId;
 let sourceById;
@@ -327,7 +327,7 @@ function connectEvents() {
   $('close-source').addEventListener('click', () => $('source-dialog').close());
   $('open-library').addEventListener('click', openLibrary);
   $('close-library').addEventListener('click', () => $('library-dialog').close());
-  $('show-all').addEventListener('click', () => { clearTimeout(searchTimeout); state.scope = 'all'; state.source = 'all'; state.kind = 'original'; state.query = ''; $('search').value = ''; save({scope: 'all', source: 'all', kind:'original'}); rebuildDeck(); });
+  $('show-all').addEventListener('click', () => { clearTimeout(searchTimeout); state.scope = 'all'; state.source = 'all'; state.kind = 'all'; state.query = ''; $('search').value = ''; save({scope: 'all', source: 'all', kind:'all'}); rebuildDeck(); });
   window.addEventListener('storage', event => {
     if (!persistence.handles(event)) return;
     refreshMarks();

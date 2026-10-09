@@ -30,7 +30,9 @@ try{
     }
   });
   const page=await context.newPage();await page.clock.install();await page.goto(url);await ready(page);
-  assert.equal(await page.locator('#kind').inputValue(),'original');
+  assert.equal(await page.locator('#kind').inputValue(),'all');
+  assert.equal(await page.locator('#learned-count').textContent(),'1 / 241');
+  await page.locator('#kind').selectOption('original');
   assert.equal(await page.locator('#learned-count').textContent(),'1 / 172');
   await page.locator('#kind').selectOption('reference');
   assert.match(await position(page),/\/ 46 /);
@@ -117,7 +119,7 @@ try{
   assert.equal(await page.locator('#empty-state').isVisible(),true);
   assert.equal(await page.locator('#next').isDisabled(),true);
   await page.locator('#show-all').click();
-  assert.equal(await page.locator('#kind').inputValue(),'original');
+  assert.equal(await page.locator('#kind').inputValue(),'all');
   assert.equal(await page.locator('#empty-state').isVisible(),false);
   passed.push('속도표 원문 12쪽 제공 · 자료/유형 조합 빈 범위 · 전체 복귀');
 
@@ -138,6 +140,7 @@ try{
     if(width<=640)await page.locator('.settings-panel > summary').click();
     await page.locator('#order').selectOption('sequential');
     for(const kind of ['reference','scenario','sign']){
+      await settings(page);
       await page.locator('#kind').selectOption(kind);
       if(kind==='reference')await search(page,'MCB란');
       const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
