@@ -27,8 +27,7 @@ try {
   await page.goto(url);
   await page.waitForSelector('body[data-ready="true"]');
   assert.equal(await page.locator('[data-count="all"]').textContent(), '241');
-  await page.locator('#kind').selectOption('original');
-  assert.equal(await page.locator('[data-count="all"]').textContent(), '172');
+  assert.equal(await page.locator('#kind').count(), 0);
   await page.locator('#order').selectOption('sequential');
   await page.locator('[data-source="textbook"]').click();
   assert.equal(await page.locator('body').getAttribute('data-current-id'), 'textbook-1');
@@ -40,14 +39,14 @@ try {
 
   const seen = new Set();
   await page.locator('#order').selectOption('shuffle');
-  for (let index=0; index<82; index++) {
+  for (let index=0; index<151; index++) {
     const id = await page.locator('body').getAttribute('data-current-id');
     assert.ok(!seen.has(id), `중복 문항: ${id}`); seen.add(id);
     await page.locator('#next').click();
   }
-  assert.equal(seen.size, 82);
+  assert.equal(seen.size, 151);
   assert.equal(await page.locator('#cycle-label').textContent(), '2회차');
-  passed.push('랜덤 82문항 실제 순회: 중복·누락 없음');
+  passed.push('기능교재 전체151문항 실제 순회: 중복·누락 없음');
 
   await page.locator('#order').selectOption('sequential');
   await page.locator('#next').click();
@@ -96,9 +95,9 @@ try {
   await page.locator('#reveal').click();
   await page.locator('#star').click();
   await page.locator('#mark-learned').click();
-  assert.equal(await page.locator('#learned-count').textContent(), '1 / 172');
+  assert.equal(await page.locator('#learned-count').textContent(), '1 / 241');
   await page.reload(); await page.waitForSelector('body[data-ready="true"]');
-  assert.equal(await page.locator('#learned-count').textContent(), '1 / 172');
+  assert.equal(await page.locator('#learned-count').textContent(), '1 / 241');
   assert.equal(await page.locator('#star').getAttribute('aria-pressed'), 'true');
   await page.locator('#scope').selectOption('unlearned');
   assert.equal(await page.locator('body').getAttribute('data-current-id'), 'textbook-2');

@@ -2,9 +2,9 @@ import { makeDeck, filterQuestions, Countdown } from './model.js';
 import { StudyStorage } from './persistence.js';
 
 const $ = id => document.getElementById(id);
-const allowed = {source: ['all', 'textbook', 'oral'], kind: ['all', 'original', 'reference', 'scenario', 'sign'], scope: ['all', 'unlearned', 'review', 'starred'], order: ['shuffle', 'sequential'], duration: [0, 30, 60, 90, 120]};
+const allowed = {source: ['all', 'textbook', 'oral'], scope: ['all', 'unlearned', 'review', 'starred'], order: ['shuffle', 'sequential'], duration: [0, 30, 60, 90, 120]};
 const kindNames = {original:'원문 문항', reference:'참고사항', scenario:'세부 상황', sign:'표지 그림'};
-const state = {source: 'all', kind: 'all', scope: 'all', order: 'shuffle', duration: 60, query: '', marks: {}, deck: [], cursor: 0, cycle: 1, answerVisible: false, expirationHandled: false, clock: new Countdown(60)};
+const state = {source: 'all', scope: 'all', order: 'shuffle', duration: 60, query: '', marks: {}, deck: [], cursor: 0, cycle: 1, answerVisible: false, expirationHandled: false, clock: new Countdown(60)};
 let data;
 let byId;
 let sourceById;
@@ -105,7 +105,7 @@ function flushSearch() {
 }
 
 function renderCounts() {
-  const progressQuestions = filterQuestions(data.questions, {kind:state.kind});
+  const progressQuestions = data.questions;
   const marks = progressQuestions.map(question => state.marks[question.id] || {});
   const learned = marks.filter(mark => mark.status === 'learned').length;
   $('learned-count').textContent = `${learned} / ${progressQuestions.length}`;
@@ -115,16 +115,15 @@ function renderCounts() {
   meter.setAttribute('aria-valuenow', learned);
   $('review-count').textContent = `다시 보기 ${marks.filter(mark => mark.status === 'review').length}`;
   $('starred-count').textContent = `별표 ${marks.filter(mark => mark.starred).length}`;
-  $('total-count').textContent = `전체 ${data.questions.length}문항`;
   $('bank-count').textContent = `현재 ${selectedQuestions().length}문항`;
-  $('progress-label').textContent = state.kind === 'all' ? '모든 유형 전체 진도' : `${kindNames[state.kind]} 전체 진도`;
+  $('progress-label').textContent = '전체 문항 진도';
   for (const button of document.querySelectorAll('[data-source]')) {
     const selected = button.dataset.source === state.source;
     button.setAttribute('aria-pressed', selected);
     button.classList.toggle('selected', selected);
     button.querySelector('[data-count]').textContent = progressQuestions.filter(question => button.dataset.source === 'all' || question.source === button.dataset.source).length;
   }
-  for (const key of ['kind', 'scope', 'order', 'duration']) $(key).value = state[key];
+  for (const key of ['scope', 'order', 'duration']) $(key).value = state[key];
 }
 
 function pageFigure(question, page, eager = false) {
@@ -289,12 +288,6 @@ function openLibrary() {
 function connectEvents() {
   document.querySelectorAll('[data-source]').forEach(button => button.addEventListener('click', () => { state.source = button.dataset.source; save({source: state.source}); rebuildDeck(); }));
   $('scope').addEventListener('change', event => { state.scope = event.target.value; save({scope: state.scope}); rebuildDeck(); });
-  $('kind').addEventListener('change', event => {
-    state.kind = event.target.value; save({kind: state.kind});
-    if (matchMedia('(max-width: 640px)').matches) document.querySelector('.settings-panel').open = false;
-    rebuildDeck();
-    scrollToQuestion();
-  });
   $('order').addEventListener('change', event => { state.order = event.target.value; save({order: state.order}); rebuildDeck(); });
   $('duration').addEventListener('change', event => { state.duration = Number(event.target.value); save({duration: state.duration}); resetQuestion(); render(); });
   $('search').addEventListener('input', () => { clearTimeout(searchTimeout); searchTimeout = setTimeout(flushSearch, 160); });
@@ -327,7 +320,7 @@ function connectEvents() {
   $('close-source').addEventListener('click', () => $('source-dialog').close());
   $('open-library').addEventListener('click', openLibrary);
   $('close-library').addEventListener('click', () => $('library-dialog').close());
-  $('show-all').addEventListener('click', () => { clearTimeout(searchTimeout); state.scope = 'all'; state.source = 'all'; state.kind = 'all'; state.query = ''; $('search').value = ''; save({scope: 'all', source: 'all', kind:'all'}); rebuildDeck(); });
+  $('show-all').addEventListener('click', () => { clearTimeout(searchTimeout); state.scope = 'all'; state.source = 'all'; state.query = ''; $('search').value = ''; save({scope: 'all', source: 'all'}); rebuildDeck(); });
   window.addEventListener('storage', event => {
     if (!persistence.handles(event)) return;
     refreshMarks();
@@ -359,10 +352,6 @@ try {
   sourceById = new Map(data.sources.map(source => [source.id, source]));
   persistence = new StudyStorage({getItem: key => localStorage.getItem(key), setItem: (key, value) => localStorage.setItem(key, value)}, byId.keys());
   restore();
-  for (const kind of ['all', ...Object.keys(kindNames)]) {
-    const count = filterQuestions(data.questions, {kind}).length;
-    $('kind').querySelector(`[value="${kind}"]`).textContent = `${kind === 'all' ? '전체 섞어서' : kindNames[kind]} · ${count}문항`;
-  }
   for (const source of data.sources) document.querySelector(`[data-count="${source.id}"]`).textContent = source.count;
   document.querySelector('[data-count="all"]').textContent = data.questions.length;
   if (matchMedia('(max-width: 640px)').matches) document.querySelector('.settings-panel').open = false;

@@ -84,14 +84,15 @@ test('16개 표지에 명칭 없는 문제 그림과 원문 설명·출처를 �
   }
 });
 
-test('유형·교재·검색·학습 필터를 결합하고 혼합 출제도 중복 없이 순회한다', () => {
-  assert.equal(filterQuestions(all,{kind:'original'}).length,172);
-  assert.equal(filterQuestions(all,{kind:'reference'}).length,46);
-  assert.equal(filterQuestions(all,{source:'oral',kind:'reference'}).length,0);
-  assert.equal(filterQuestions(all,{kind:'scenario',query:'6.64'}).length,4);
-  assert.equal(filterQuestions(all,{kind:'sign',query:'타행'}).length,1);
-  assert.equal(filterQuestions(all,{kind:'reference',scope:'starred'},{'reference-textbook-13-1-1':{starred:true}}).length,1);
-  assert.equal(filterQuestions(all,{kind:'all'}).length,241);
+test('출제유형 필터 없이 교재·검색·학습 필터를 결합하고 전체 문항을 순회한다', () => {
+  for (const kind of ['original','reference','scenario','sign','all']) {
+    assert.equal(filterQuestions(all,{kind}).length,241,'이전 유형 설정은 출제를 제한하지 않는다');
+  }
+  assert.equal(filterQuestions(all,{source:'oral'}).length,90);
+  assert.equal(filterQuestions(all,{source:'textbook'}).length,151);
+  assert.ok(filterQuestions(all,{query:'6.64'}).some(q=>q.kind==='scenario'));
+  assert.ok(filterQuestions(all,{query:'타행'}).some(q=>q.kind==='sign'));
+  assert.equal(filterQuestions(all,{scope:'starred'},{'reference-textbook-13-1-1':{starred:true}}).length,1);
   const deck=makeDeck(all);
   assert.equal(new Set(deck).size,241);
 });
