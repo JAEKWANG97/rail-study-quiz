@@ -32,8 +32,8 @@ try{
   });
   const page=await context.newPage();await page.clock.install();await page.goto(url);await ready(page);
   assert.equal(await page.locator('#kind').count(),0);
-  assert.equal(await page.locator('#learned-count').textContent(),'1 / 241');
-  assert.match(await position(page),/\/ 151 /);
+  assert.equal(await page.locator('#learned-count').textContent(),'1 / 240');
+  assert.match(await position(page),/\/ 150 /);
   await search(page,'MCB란');
   assert.equal(await id(page),'reference-textbook-13-1-1');
   assert.equal(await page.locator('#question-image').isVisible(),false);
@@ -50,7 +50,7 @@ try{
   await page.locator('#scope').selectOption('review');
   assert.equal(await id(page),'reference-textbook-13-1-1');
   await page.locator('#scope').selectOption('all');
-  assert.equal(await page.locator('#learned-count').textContent(),'1 / 241');
+  assert.equal(await page.locator('#learned-count').textContent(),'1 / 240');
   await search(page,'전체 MCB 투입 불능');
   assert.equal(await id(page),'textbook-13');
   assert.equal(await page.locator('#star').getAttribute('aria-pressed'),'true');
@@ -120,13 +120,13 @@ try{
   passed.push('속도표 원문 12쪽 제공 · 교재/검색 조합 빈 범위 · 전체 복귀');
 
   await page.locator('#order').selectOption('shuffle');
-  assert.equal(await page.locator('[data-count="all"]').textContent(),'241');
+  assert.equal(await page.locator('[data-count="all"]').textContent(),'240');
   const mixed=new Set();
-  for(let i=0;i<241;i++){const currentId=await id(page);assert.ok(!mixed.has(currentId),`혼합 중복 ${currentId}`);mixed.add(currentId);await page.locator('#next').click();}
-  assert.equal(mixed.size,241);
+  for(let i=0;i<240;i++){const currentId=await id(page);assert.ok(!mixed.has(currentId),`혼합 중복 ${currentId}`);mixed.add(currentId);await page.locator('#next').click();}
+  assert.equal(mixed.size,240);
   assert.equal(await page.locator('#cycle-label').textContent(),'2회차');
-  assert.equal(await page.locator('#learned-count').textContent(),'1 / 241');
-  passed.push('전체 241문항 실제 랜덤 순회 중복/누락 없음 · 혼합 진도 표시');
+  assert.equal(await page.locator('#learned-count').textContent(),'1 / 240');
+  passed.push('전체 240문항 실제 랜덤 순회 중복/누락 없음 · 혼합 진도 표시');
 
   const layouts=[];
   for(const width of [1440,390,320]){

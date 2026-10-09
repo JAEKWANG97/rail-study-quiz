@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
-import { makeDeck, filterQuestions, Countdown } from '../public/model.js';
+import { makeDeck, filterQuestions, Countdown, isStudyQuestion } from '../public/model.js';
 
 const root = new URL('../', import.meta.url);
 const data = JSON.parse(await readFile(new URL('public/questions.json', root), 'utf8'));
@@ -45,7 +45,7 @@ test('원본 PDF 사본의 해시가 추출 기록과 일치한다', async () =>
 });
 
 test('랜덤 출제는 한 바퀴 안에서 누락이나 중복이 없다', () => {
-  const original = data.questions.map(question => question.id);
+  const original = data.questions.filter(isStudyQuestion).map(question => question.id);
   const shuffled = makeDeck(data.questions, 'shuffle', () => .37);
   assert.equal(shuffled.length, original.length);
   assert.deepEqual([...shuffled].sort(), [...original].sort());
@@ -57,7 +57,7 @@ test('교재, 검색, 복습, 별표, 미암기 필터를 함께 적용한다', 
   const marks = {'textbook-1': {status: 'review', starred: true}, 'textbook-2': {status: 'learned'}, 'oral-1': {status: 'review'}};
   assert.deepEqual(filterQuestions(data.questions, {source: 'textbook', scope: 'review'}, marks).map(question=>question.id), ['textbook-1']);
   assert.deepEqual(filterQuestions(data.questions, {scope: 'starred'}, marks).map(question=>question.id), ['textbook-1']);
-  assert.equal(filterQuestions(data.questions, {scope: 'unlearned'}, marks).length, 171);
+  assert.equal(filterQuestions(data.questions, {scope: 'unlearned'}, marks).length, 170);
   assert.ok(filterQuestions(data.questions, {query:'구원열차'}).length > 0);
   assert.equal(filterQuestions(data.questions, {query:'문제에없는검색어'}).length, 0);
 });

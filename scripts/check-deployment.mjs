@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { versionAsset } from './release-assets.mjs';
+import { isStudyQuestion } from '../public/model.js';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const site = process.env.DEPLOYMENT_URL || 'https://jaekwang97.github.io/rail-study-quiz/';
@@ -14,8 +15,10 @@ const version = await versionResponse.json();
 assert.equal(version.revision, revision, '배포본과 로컬 커밋 일치');
 const original = JSON.parse(await readFile(`${root}public/questions.json`, 'utf8'));
 const supplemental = JSON.parse(await readFile(`${root}public/supplemental.json`, 'utf8'));
-assert.equal(version.questionCount, original.questions.length + supplemental.questions.length);
-assert.deepEqual(version.counts, {original:original.questions.length, ...supplemental.counts});
+const activeOriginal = original.questions.filter(isStudyQuestion);
+assert.equal(version.questionCount, activeOriginal.length + supplemental.questions.length);
+assert.equal(version.archivedQuestionCount,1);
+assert.deepEqual(version.counts, {original:activeOriginal.length, ...supplemental.counts});
 const files = [];
 async function collect(directory = '') {
   for (const entry of await readdir(`${root}public/${directory}`, {withFileTypes:true})) {

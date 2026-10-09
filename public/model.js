@@ -1,5 +1,9 @@
+// The overview card is replaced by the 16 individual image questions.
+// Keep the original source/ID available for provenance and stored study history.
+export const isStudyQuestion = question => question.id !== 'textbook-82';
+
 export function makeDeck(questions, order = 'shuffle', random = Math.random) {
-  const deck = questions.map(question => question.id);
+  const deck = questions.filter(isStudyQuestion).map(question => question.id);
   if (order === 'shuffle') {
     for (let index = deck.length - 1; index > 0; index--) {
       const other = Math.floor(random() * (index + 1));
@@ -12,6 +16,7 @@ export function makeDeck(questions, order = 'shuffle', random = Math.random) {
 export function filterQuestions(questions, {source = 'all', scope = 'all', query = ''}, marks = {}) {
   const search = query.normalize('NFC').trim().toLocaleLowerCase('ko-KR');
   return questions.filter(question => {
+    if (!isStudyQuestion(question)) return false;
     const mark = marks[question.id] || {};
     if (source !== 'all' && question.source !== source) return false;
     if (scope === 'review' && mark.status !== 'review') return false;

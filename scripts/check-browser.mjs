@@ -26,7 +26,7 @@ try {
   await page.clock.install();
   await page.goto(url);
   await page.waitForSelector('body[data-ready="true"]');
-  assert.equal(await page.locator('[data-count="all"]').textContent(), '241');
+  assert.equal(await page.locator('[data-count="all"]').textContent(), '240');
   assert.equal(await page.locator('#kind').count(), 0);
   await page.locator('#order').selectOption('sequential');
   await page.locator('[data-source="textbook"]').click();
@@ -39,14 +39,14 @@ try {
 
   const seen = new Set();
   await page.locator('#order').selectOption('shuffle');
-  for (let index=0; index<151; index++) {
+  for (let index=0; index<150; index++) {
     const id = await page.locator('body').getAttribute('data-current-id');
     assert.ok(!seen.has(id), `중복 문항: ${id}`); seen.add(id);
     await page.locator('#next').click();
   }
-  assert.equal(seen.size, 151);
+  assert.equal(seen.size, 150);
   assert.equal(await page.locator('#cycle-label').textContent(), '2회차');
-  passed.push('기능교재 전체151문항 실제 순회: 중복·누락 없음');
+  passed.push('기능교재 전체150문항 실제 순회: 중복·누락 없음');
 
   await page.locator('#order').selectOption('sequential');
   await page.locator('#next').click();
@@ -95,9 +95,9 @@ try {
   await page.locator('#reveal').click();
   await page.locator('#star').click();
   await page.locator('#mark-learned').click();
-  assert.equal(await page.locator('#learned-count').textContent(), '1 / 241');
+  assert.equal(await page.locator('#learned-count').textContent(), '1 / 240');
   await page.reload(); await page.waitForSelector('body[data-ready="true"]');
-  assert.equal(await page.locator('#learned-count').textContent(), '1 / 241');
+  assert.equal(await page.locator('#learned-count').textContent(), '1 / 240');
   assert.equal(await page.locator('#star').getAttribute('aria-pressed'), 'true');
   await page.locator('#scope').selectOption('unlearned');
   assert.equal(await page.locator('body').getAttribute('data-current-id'), 'textbook-2');
@@ -129,15 +129,16 @@ try {
   await page.locator('[data-source="textbook"]').click();
   await page.locator('#search').fill('각종 표지');
   await page.clock.runFor(200);
-  await page.locator('#reveal').click();
-  await page.locator('#visual-reference summary').click();
-  assert.equal(await page.locator('#visual-pages img').count(), 2);
-  await page.waitForFunction(()=>Array.from(document.querySelectorAll('#visual-pages img')).every(image=>image.naturalWidth > 0));
+  assert.equal(await page.locator('#empty-state').isVisible(),true);
+  await page.locator('#show-all').click();
   await page.locator('#open-library').click();
-  assert.equal(await page.locator('.library-item').count(), 1);
-  await page.locator('.library-item').click();
+  assert.equal(await page.locator('.library-item').count(),240);
+  assert.equal(await page.locator('.library-item').filter({has:page.getByText('6.82',{exact:true})}).count(),0);
+  await page.locator('.library-item').filter({has:page.getByText('표지 01',{exact:true})}).click();
   assert.equal(await page.locator('#library-dialog').isVisible(), false);
-  passed.push('표지 원문 그림 2페이지 표시 · 문항 목록에서 이동');
+  await page.waitForFunction(()=>document.querySelector('#sign-image').naturalWidth>0);
+  assert.equal(await page.locator('#question-image').isVisible(),true);
+  passed.push('각종 표지 묶음 검색/목록 제외 · 개별 이미지 표지 문제 유지');
 
   await page.locator('#search').fill('없는문항을찾습니다');
   await page.clock.runFor(200);
@@ -172,16 +173,16 @@ try {
     await tab.locator('[data-source="textbook"]').click();
   }
   await tabA.locator('#reveal').click(); await tabA.locator('#mark-learned').click();
-  await tabB.waitForFunction(()=>document.querySelector('#learned-count').textContent==='1 / 241');
+  await tabB.waitForFunction(()=>document.querySelector('#learned-count').textContent==='1 / 240');
   await tabB.locator('#next').click(); await tabB.locator('#reveal').click(); await tabB.locator('#mark-review').click();
   await tabB.locator('#duration').selectOption('90');
   await tabA.waitForFunction(()=>document.querySelector('#review-count').textContent==='다시 보기 1');
   await tabA.reload(); await tabA.waitForSelector('body[data-ready="true"]');
-  assert.equal(await tabA.locator('#learned-count').textContent(),'1 / 241');
+  assert.equal(await tabA.locator('#learned-count').textContent(),'1 / 240');
   assert.equal(await tabA.locator('#review-count').textContent(),'다시 보기 1');
   await tabB.locator('#previous').click(); await tabB.locator('#star').click();
   await tabA.waitForFunction(()=>document.querySelector('#star').getAttribute('aria-pressed')==='true');
-  assert.equal(await tabA.locator('#learned-count').textContent(),'1 / 241');
+  assert.equal(await tabA.locator('#learned-count').textContent(),'1 / 240');
   await tabA.locator('#scope').selectOption('unlearned');
   assert.equal(await tabA.locator('body').getAttribute('data-current-id'),'textbook-2');
   await tabB.locator('#reveal').click(); await tabB.locator('#mark-learned').click();
@@ -198,9 +199,9 @@ try {
   await blockedPage.locator('#order').selectOption('sequential');
   await blockedPage.locator('[data-source="textbook"]').click();
   await blockedPage.locator('#reveal').click(); await blockedPage.locator('#mark-learned').click();
-  assert.equal(await blockedPage.locator('#learned-count').textContent(),'1 / 241');
+  assert.equal(await blockedPage.locator('#learned-count').textContent(),'1 / 240');
   await blockedPage.locator('#next').click(); await blockedPage.locator('#reveal').click(); await blockedPage.locator('#mark-learned').click();
-  assert.equal(await blockedPage.locator('#learned-count').textContent(),'2 / 241');
+  assert.equal(await blockedPage.locator('#learned-count').textContent(),'2 / 240');
   assert.equal(await blockedPage.locator('#saved-status').textContent(),'이번 탭에서 연습');
   await blocked.close();
   passed.push('저장소 접근 차단에서도 학습·임시 기록 계속 사용');
@@ -211,9 +212,9 @@ try {
   await corruptPage.evaluate(()=>localStorage.setItem('rail-note-study-v1','{broken'));
   await corruptPage.reload(); await corruptPage.waitForSelector('body[data-ready="true"]');
   await corruptPage.locator('#reveal').click(); await corruptPage.locator('#mark-learned').click();
-  assert.equal(await corruptPage.locator('#learned-count').textContent(),'1 / 241');
+  assert.equal(await corruptPage.locator('#learned-count').textContent(),'1 / 240');
   await corruptPage.reload(); await corruptPage.waitForSelector('body[data-ready="true"]');
-  assert.equal(await corruptPage.locator('#learned-count').textContent(),'1 / 241');
+  assert.equal(await corruptPage.locator('#learned-count').textContent(),'1 / 240');
   await corruptPage.locator('#duration').selectOption('90');
   assert.equal(await corruptPage.evaluate(()=>JSON.parse(localStorage.getItem('rail-note-study-v1')).duration),90);
   await corrupt.close();
@@ -223,16 +224,17 @@ try {
   await longPage.goto(url); await longPage.waitForSelector('body[data-ready="true"]');
   await longPage.locator('#order').selectOption('sequential');
   await longPage.locator('[data-source="textbook"]').click();
-  await longPage.locator('#search').fill('각종 표지');
-  await longPage.locator('#open-library').click(); await longPage.locator('.library-item').click();
+  await longPage.locator('#search').fill('제동 불완해 발생 시 조치');
+  await longPage.locator('#open-library').click();
+  await longPage.locator('.library-item').filter({has:longPage.getByText('6.24',{exact:true})}).click();
   await longPage.locator('#reveal').click();
-  assert.ok((await longPage.locator('#answer').textContent()).length>=1500);
+  assert.ok((await longPage.locator('#answer').textContent()).length>=600);
   for(const width of [320,390,641]){
     await longPage.setViewportSize({width,height:844});
     assert.equal(await longPage.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   }
   await longPage.close();
-  passed.push('실제 최장 답안 6.82의 320/390/641px 가로 넘침 검사');
+  passed.push('긴 답안 6.24의 320/390/641px 가로 넘침 검사');
 
   await page.locator('#order').selectOption('sequential');
   const layouts = [];

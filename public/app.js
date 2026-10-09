@@ -1,4 +1,4 @@
-import { makeDeck, filterQuestions, Countdown } from './model.js';
+import { makeDeck, filterQuestions, Countdown, isStudyQuestion } from './model.js';
 import { StudyStorage } from './persistence.js';
 
 const $ = id => document.getElementById(id);
@@ -212,7 +212,7 @@ function render() {
     $('answer-notice').textContent = '이 문항은 원문에 텍스트 답안이 비어 있어요. ‘원문 보기’로 확인해 주세요.';
     $('answer-note').hidden = !question.answerNote;
     $('answer-note').textContent = question.answerNote || '';
-    const visualPages = question.number === '6.82' ? question.pageNumbers : question.id === 'oral-2' ? [1] : question.imagePages;
+    const visualPages = question.id === 'oral-2' ? [1] : question.imagePages;
     $('visual-reference').hidden = visualPages.length === 0;
     if ($('visual-pages').dataset.questionId !== question.id) {
       $('visual-pages').replaceChildren(...visualPages.map(page => pageFigure(question, page)));
@@ -347,7 +347,7 @@ try {
   const responses = await Promise.all(['questions.json', 'supplemental.json'].map(file => fetch(`./${file}`)));
   if (responses.some(response => !response.ok)) throw new Error('Question data unavailable');
   const [original, supplemental] = await Promise.all(responses.map(response => response.json()));
-  data = {...original, questions:[...original.questions, ...supplemental.questions]};
+  data = {...original, questions:[...original.questions, ...supplemental.questions].filter(isStudyQuestion)};
   byId = new Map(data.questions.map(question => [question.id, question]));
   sourceById = new Map(data.sources.map(source => [source.id, source]));
   persistence = new StudyStorage({getItem: key => localStorage.getItem(key), setItem: (key, value) => localStorage.setItem(key, value)}, byId.keys());
