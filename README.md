@@ -43,7 +43,7 @@ npm run build
 
 계정 소유자의 Cloudflare → Observability → Analytics → Web Analytics → jaekwang97.github.io에서 기간별 Visits·Page views와 유입 경로를 봅니다. Visits는 고유 사람 수가 아닙니다. 수집 시작 이전의 방문 추이는 복원할 수 없고 문제 넘김은 별도 페이지뷰가 아닙니다. 데이터 반영까지 몇 분 걸릴 수 있습니다. 공식 안내: https://developers.cloudflare.com/web-analytics/get-started/ · 지표 정의: https://developers.cloudflare.com/web-analytics/data-metrics/high-level-metrics/
 
-빌드 결과 `dist/`는 상대 경로만 사용하므로 GitHub Pages 하위 경로 등 정적 호스팅에 올릴 수 있습니다. `.github/workflows/pages.yml`은 `main` 푸시 시 테스트와 빌드를 거쳐 GitHub Pages에 자동 배포합니다. 저장소의 Pages 설정은 GitHub Actions를 사용합니다.
+빌드 결과 `dist/`는 상대 경로만 사용하므로 GitHub Pages 하위 경로 등 정적 호스팅에 올릴 수 있습니다. HTML의 JavaScript/CSS와 앱의 모듈 import에는 배포 커밋 `?v=...`를 자동으로 붙여 이전 코드 캐시와 새 HTML의 혼합을 방지합니다. 학습 저장 키와 문항 데이터는 변경하지 않습니다. `.github/workflows/pages.yml`은 `main` 푸시 시 테스트와 빌드를 거쳐 GitHub Pages에 자동 배포합니다. 저장소의 Pages 설정은 GitHub Actions를 사용합니다.
 
 배포 대상: https://jaekwang97.github.io/rail-study-quiz/
 

@@ -1,12 +1,17 @@
-import { cp, mkdir, readFile, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { versionAsset } from './release-assets.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 await mkdir(`${root}dist`, {recursive: true});
 await cp(`${root}public`, `${root}dist`, {recursive: true});
 let revision = process.env.GITHUB_SHA || 'local';
 if (revision === 'local') {
   try { revision = execFileSync('git', ['rev-parse', 'HEAD'], {cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore']}).trim(); } catch {}
+}
+for (const file of await readdir(`${root}public`)) {
+  if (!/\.(?:html|js)$/.test(file)) continue;
+  await writeFile(`${root}dist/${file}`, versionAsset(file, await readFile(`${root}public/${file}`), revision));
 }
 const {questions} = JSON.parse(await readFile(`${root}public/questions.json`, 'utf8'));
 const supplemental = JSON.parse(await readFile(`${root}public/supplemental.json`, 'utf8'));
