@@ -2,7 +2,7 @@ import { makeDeck, filterQuestions, Countdown, isStudyQuestion } from './model.j
 import { StudyStorage } from './persistence.js';
 
 const $ = id => document.getElementById(id);
-const allowed = {source: ['all', 'textbook', 'oral'], scope: ['all', 'unlearned', 'review', 'starred'], order: ['shuffle', 'sequential'], duration: [0, 30, 60, 90, 120]};
+const allowed = {source: ['all', 'textbook', 'oral', 'oral-extra'], scope: ['all', 'unlearned', 'review', 'starred'], order: ['shuffle', 'sequential'], duration: [0, 30, 60, 90, 120]};
 const kindNames = {original:'원문 문항', reference:'참고사항', scenario:'세부 상황', sign:'표지 그림'};
 const state = {source: 'all', scope: 'all', order: 'shuffle', duration: 60, query: '', marks: {}, deck: [], cursor: 0, cycle: 1, answerVisible: false, expirationHandled: false, clock: new Countdown(60)};
 let data;
@@ -344,10 +344,10 @@ function connectEvents() {
 }
 
 try {
-  const responses = await Promise.all(['questions.json', 'supplemental.json'].map(file => fetch(`./${file}`)));
+  const responses = await Promise.all(['questions.json', 'supplemental.json', 'oral-extra.json'].map(file => fetch(`./${file}`)));
   if (responses.some(response => !response.ok)) throw new Error('Question data unavailable');
-  const [original, supplemental] = await Promise.all(responses.map(response => response.json()));
-  data = {...original, questions:[...original.questions, ...supplemental.questions].filter(isStudyQuestion)};
+  const [original, supplemental, extra] = await Promise.all(responses.map(response => response.json()));
+  data = {...original, sources:[...original.sources, ...extra.sources], questions:[...original.questions, ...supplemental.questions, ...extra.questions].filter(isStudyQuestion)};
   byId = new Map(data.questions.map(question => [question.id, question]));
   sourceById = new Map(data.sources.map(source => [source.id, source]));
   persistence = new StudyStorage({getItem: key => localStorage.getItem(key), setItem: (key, value) => localStorage.setItem(key, value)}, byId.keys());

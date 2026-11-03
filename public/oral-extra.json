@@ -1,0 +1,768 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "oral-extra",
+      "name": "신규구술 추가본",
+      "filename": "oral-extra.pdf",
+      "pageCount": 9,
+      "count": 50,
+      "sha256": "91a5fd8c2e9536d64f6f2876315c1a033100d42e177a97d3a868de7308c5f38d"
+    }
+  ],
+  "questions": [
+    {
+      "id": "oral-extra-01",
+      "source": "oral-extra",
+      "number": "추가 01",
+      "question": "EOD 기능",
+      "page": 1,
+      "endPage": 1,
+      "answer": "응하중 신호 생성\n재동 패턴 생성\n전기 제동 피드백 수신\n전기 제동 전류 감지\n저크제어\n일괄교차제어\n인쇼트 기능\n히스테리시스 보정\n모니터 정보전송",
+      "pageNumbers": [
+        1
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-02",
+      "source": "oral-extra",
+      "number": "추가 02",
+      "question": "교류 및 직류구간 전력 공급 순서",
+      "page": 1,
+      "endPage": 1,
+      "answer": "교류 : 전차선 → PAN → MCB → ADCg → 주휴즈 → 주변압기 → 컨버터 → 인\n버터 → 유도전동기\n직류 : 전차선 → PAN → MCB → ADCg → L1 → L2 → L3 → 인버터 → 유도전\n동기",
+      "pageNumbers": [
+        1
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-03",
+      "source": "oral-extra",
+      "number": "추가 03",
+      "question": "주변압기 냉각 동작 방법",
+      "page": 1,
+      "endPage": 1,
+      "answer": "변압기 내부의 고열을 절연유가 흡수 → MTOM이 외부 냉각기로 강제 순환 →\nMTBM이 강제 방열하여 일정한 온도 유지",
+      "pageNumbers": [
+        1
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-04",
+      "source": "oral-extra",
+      "number": "추가 04",
+      "question": "MTOM, MTBM 역할",
+      "page": 1,
+      "endPage": 1,
+      "answer": "MTOM → 실리콘 오일을 강제로 순환시켜 주변압기에서 발생되는 열을 흡수하도\n록 하는 주변압기 냉각용 모터\nMTBM → 공기를 흡입하여 주변압기 냉각용 오일을 냉각시킨다",
+      "pageNumbers": [
+        1
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-05",
+      "source": "oral-extra",
+      "number": "추가 05",
+      "question": "열차 방호 장치 동작 시 수신 차량 현상",
+      "page": 2,
+      "endPage": 2,
+      "answer": "적색 상황 발생등 점멸\n경고음이 울림\nLED 화면 상황 발생 수신 및 메시지 현시, 수신 즉시 비상제동 체결",
+      "pageNumbers": [
+        2
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-06",
+      "source": "oral-extra",
+      "number": "추가 06",
+      "question": "열차 방호 장치 수신 차량 조치 및 현상",
+      "page": 2,
+      "endPage": 2,
+      "answer": "조치로는 비상제동 체결되었으면 완해하고, 조치스위치 취급\n현상으로는 경고음 계속 울리고 적색 상황 발생등 점멸, 황색 조치등 점등",
+      "pageNumbers": [
+        2
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-07",
+      "source": "oral-extra",
+      "number": "추가 07",
+      "question": "열차 방호 장치 발생 차량 현상",
+      "page": 2,
+      "endPage": 2,
+      "answer": "적색 상황 발생들 점멸, 10초간 경보음 발생, LCD 화면 상황 발생 수신 메시지 현시",
+      "pageNumbers": [
+        2
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-08",
+      "source": "oral-extra",
+      "number": "추가 08",
+      "question": "RSOS(구원운전스위치) 위치와 취급 방법",
+      "page": 2,
+      "endPage": 2,
+      "answer": "취급방법은 마주보는 운전실의 RSOS를 해당 차량 위치로 절환\n위치는 정상, 과천선(분당선), 과천선 → 1호선, 1호선 → 과천선, DL위치",
+      "pageNumbers": [
+        2
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-09",
+      "source": "oral-extra",
+      "number": "추가 09",
+      "question": "ADS 절환해도 MCB 차단 불능 원인 및 조치",
+      "page": 2,
+      "endPage": 2,
+      "answer": "2선이 단선되거나 HCR2(b)점점 불량으로 후부운전실 MCBHR트립코일 무여자로\n양쪽 운전실에서 7,8선이 가압\n조치로는 즉시 EPANDS 취급, 직류 전환 시에는 40이하의 속도로 운전\n교류 전환 시에는 그대로 운전하여 최근 정거장 도착, EPANDS복귀, PAN 상승,\nMCB 투입 후 전도운전\n종착역 도착, 운전실 교환 후 후부 운전실 MCN 차단하고 전도운전으로 입고조치",
+      "pageNumbers": [
+        2
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-10",
+      "source": "oral-extra",
+      "number": "추가 10",
+      "question": "전도운전이란?",
+      "page": 2,
+      "endPage": 2,
+      "answer": "신호를 주시하며 전방에 이상 없음을 확인하고 운전하는 것",
+      "pageNumbers": [
+        2
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-11",
+      "source": "oral-extra",
+      "number": "추가 11",
+      "question": "무동력운전이란?",
+      "page": 3,
+      "endPage": 3,
+      "answer": "동력핸들 OFF위치, 열차 관성에 의한 타력으로 운전",
+      "pageNumbers": [
+        3
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-12",
+      "source": "oral-extra",
+      "number": "추가 12",
+      "question": "TC차 외 차량에서 DLPN 차단 시 현상",
+      "page": 3,
+      "endPage": 3,
+      "answer": "출입문 취급 시, 모니터 해당 차량 출입문 닫힘 표시, 출입문 차측등 점등 불능,\nTC차는 전 차량 출입문 반감 취급 불능",
+      "pageNumbers": [
+        3
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-13",
+      "source": "oral-extra",
+      "number": "추가 13",
+      "question": "PEC 공전전환기 역할",
+      "page": 3,
+      "endPage": 3,
+      "answer": "중계변 공기압력을 전기신호로 변환\n제동 불완해, 제동력 부족 신호 검지\n모니터 제어기기에 정보 전송\n  공기압력을 아날로그 신호로 바꾸어서 전송\n강제완해전자변(CRV) 제어",
+      "pageNumbers": [
+        3
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-14",
+      "source": "oral-extra",
+      "number": "추가 14",
+      "question": "TEST 스위치 취급 시 현상과 조치",
+      "page": 3,
+      "endPage": 3,
+      "answer": "현상은 SqR2 여자되어 MCB 투입 시 MCB-C 코일 무여자로 MCB 투입 불능\n조치로는 TEST 스위치 복귀하고 MCB 투입",
+      "pageNumbers": [
+        3
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-15",
+      "source": "oral-extra",
+      "number": "추가 15",
+      "question": "ATS/ATC장치 구동원리, 운전방법",
+      "page": 3,
+      "endPage": 3,
+      "answer": "ATS는 열차의 지시속도와 실제속도 비교, 실제속도가 높을 때 경고음 울리고 3초\n내에 확인제동 미취급 시 비상제동 체결, 지시속도 이하로 내려가면 제동 완해되어\n정상 운행\nATC는 지시속도 초과 시 경고음 울리며 자동으로 ATC 상용 7 스텝 제동 체결, 제\n동핸들 1-7단에 두어 확인제동 취급 시 경고음 소멸, 지시속도 이하로 내려가면 제\n동 완해되어 정상 운행",
+      "pageNumbers": [
+        3
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-16",
+      "source": "oral-extra",
+      "number": "추가 16",
+      "question": "송풍기 위치",
+      "page": 3,
+      "endPage": 4,
+      "answer": "CIBM, FLBM → M차, M’차\nMTOM, MTBM → M’차",
+      "pageNumbers": [
+        3,
+        4
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-17",
+      "source": "oral-extra",
+      "number": "추가 17",
+      "question": "사상사고 발생 시 관제에 보고해야할 사항은?",
+      "page": 4,
+      "endPage": 4,
+      "answer": "발생일시, 발생장소, 관계열차, 사고상황, 조치상황, 사상자 수, 사상정도, 그 밖의\n참고사항",
+      "pageNumbers": [
+        4
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-18",
+      "source": "oral-extra",
+      "number": "추가 18",
+      "question": "승강장이 아닌 곳에서 승객을 대피시켜야 하는 경우",
+      "page": 4,
+      "endPage": 4,
+      "answer": "관제보고, 인접선 열차 정차 확인, 운전실 또는 객실 비상 사다리 이용 하차 유도",
+      "pageNumbers": [
+        4
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-19",
+      "source": "oral-extra",
+      "number": "추가 19",
+      "question": "최근 정거장까지 전도 운전이 불가능하여 도중에 정차하였을 때, 승객을 차 외로 유도하는 방법",
+      "page": 4,
+      "endPage": 4,
+      "answer": "관제사에게 보고 및 차장 통보\n 해당 차량 상태 확인\n 후속 열차 및 인접 선로에 대한 열차 방호 시행\n 안전한 장소로 안내 유도 대피",
+      "pageNumbers": [
+        4
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-20",
+      "source": "oral-extra",
+      "number": "추가 20",
+      "question": "구원운전시 고장차 후부운전실 DILPN차단 이유",
+      "page": 4,
+      "endPage": 4,
+      "answer": "구원연결 후 12점퍼선 연결 시, 145선으로 고장열차 DILPN 거친 전원이 구원열차\nDIR1,2을 직접 여자 시켜 고장열차 출입문이 열린 상태에서 출입문등 점등으로 동\n력운전이 가능하여 안전사고 발생을 차단하기 위함",
+      "pageNumbers": [
+        4
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-21",
+      "source": "oral-extra",
+      "number": "추가 21",
+      "question": "VCOS 취급 후 복귀 방법",
+      "page": 4,
+      "endPage": 4,
+      "answer": "고장원인 제거 후 차량차단복귀스위치(VRS) 취급",
+      "pageNumbers": [
+        4
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-22",
+      "source": "oral-extra",
+      "number": "추가 22",
+      "question": "HCRN 차단 시",
+      "page": 4,
+      "endPage": 5,
+      "answer": "전후운전실 선택 불능\n모니터에 비상제동 작동 현시\n운전실 내 표시등, 계기등 전부 소등 및 동력운전 불능\nATS 전원공급 차단\nATS위치에서 ADU 15현시 점등 및 8초마다 경고음 발생",
+      "pageNumbers": [
+        4,
+        5
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-23",
+      "source": "oral-extra",
+      "number": "추가 23",
+      "question": "과천선 VVVF 구원 운전 전 확인 사항",
+      "page": 5,
+      "endPage": 5,
+      "answer": "동력 운전 불능 여부\n비상제동 및 보안제동 체결 여부\n축전지 전압 최소 74V 이상 정상 여부 확인",
+      "pageNumbers": [
+        5
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-24",
+      "source": "oral-extra",
+      "number": "추가 24",
+      "question": "동력 전달 순서",
+      "page": 5,
+      "endPage": 5,
+      "answer": "견인전동기 → 기어커플링 → 소치차 → 대치차 → 차축 → 동륜",
+      "pageNumbers": [
+        5
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-25",
+      "source": "oral-extra",
+      "number": "추가 25",
+      "question": "L1 정상차단과 사고차단",
+      "page": 5,
+      "endPage": 5,
+      "answer": "정상차단\n   MCBOS 취급 (L1 무여자로 L1차단)\n   ADS 취급 (L1 무여자로 L1차단)\n   VCOS 취급 (COR 여자로 인한 L1 무여자로 L1차단)\n   DCVRTR 무여자(정전, 교류모진 시 MCBR1무여자에 의한 L1 무여자로 L1차\n   단)\n사고 차단\n  직류구간 주회로 1,600A 이상 과전류 시\n  C/I내 GTO Arm 단락 시",
+      "pageNumbers": [
+        5
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-26",
+      "source": "oral-extra",
+      "number": "추가 26",
+      "question": "객실 비상통화장치 동작 시 현상",
+      "page": 5,
+      "endPage": 5,
+      "answer": "모니터 운전화면에서 고장화면 전환\n전후 운전실 객실 비상입니다 방송음과 비상 부저음 발생\n동작차량 황색 차측등 점등",
+      "pageNumbers": [
+        5
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-27",
+      "source": "oral-extra",
+      "number": "추가 27",
+      "question": "밀착연결기",
+      "page": 6,
+      "endPage": 6,
+      "answer": "CM에서 생성된 공기를 모든 차량 간 서로 통하게 하여 공기제동과 출입문 등 압축\n공기를 사용하는 장치들을 작동",
+      "pageNumbers": [
+        6
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-28",
+      "source": "oral-extra",
+      "number": "추가 28",
+      "question": "VVVF 전동차 구원연결 시 예외인 코크",
+      "page": 6,
+      "endPage": 6,
+      "answer": "밀착연결기에는 MR, BP, SAP의 공기관이 연결되어 있고 VVVF 차량 간 구원운전\n시 MR코크만 개방",
+      "pageNumbers": [
+        6
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-29",
+      "source": "oral-extra",
+      "number": "추가 29",
+      "question": "접지선 설치 이유 및 방법",
+      "page": 6,
+      "endPage": 6,
+      "answer": "전차선 전원을 접지시키는 것으로, 모진 발생 시 피뢰기 등을 동작시켜 전기동차 회\n로 차단, 내부 기기 보호",
+      "pageNumbers": [
+        6
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-30",
+      "source": "oral-extra",
+      "number": "추가 30",
+      "question": "출입문등 소등 원인",
+      "page": 6,
+      "endPage": 6,
+      "answer": "출입문 1개 이상 열렸을 때\n전후부 운전실 DILPN 차단 및 DS 접점 불량 시\n출입문 공기관 COCK 차단 및 이물질 끼임 시\n출입문 전구 소손 시",
+      "pageNumbers": [
+        6
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-31",
+      "source": "oral-extra",
+      "number": "추가 31",
+      "question": "전공변환밸브(EPV)?",
+      "page": 6,
+      "endPage": 6,
+      "answer": "EOD에서 지령하는 전류의 크기에 상응한 양의 압축 공기를 만들어 중계밸브로 보\n냄",
+      "pageNumbers": [
+        6
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-32",
+      "source": "oral-extra",
+      "number": "추가 32",
+      "question": "중계밸브(RV)?",
+      "page": 6,
+      "endPage": 6,
+      "answer": "제동통에 작용하는 압축공기(BC)를 만듬",
+      "pageNumbers": [
+        6
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-33",
+      "source": "oral-extra",
+      "number": "추가 33",
+      "question": "응하중 밸브(VLV)",
+      "page": 6,
+      "endPage": 6,
+      "answer": "비상제동 작용 시, 응하중이 적용된 공기제동 작용",
+      "pageNumbers": [
+        6
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-34",
+      "source": "oral-extra",
+      "number": "추가 34",
+      "question": "비상제동 전자밸브(EBV)",
+      "page": 6,
+      "endPage": 7,
+      "answer": "무여자 시 비상제동 작용 공기를 공급",
+      "pageNumbers": [
+        6,
+        7
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-35",
+      "source": "oral-extra",
+      "number": "추가 35",
+      "question": "MCB 투입 순서",
+      "page": 7,
+      "endPage": 7,
+      "answer": "MCBCS 취급 → MCBHR여자 → ADS 위치에 따라 ADAR 또는 ADDR 여자 →\nMCBR1 여자 → MCB-C 여자 → MCBR2여자로 MCB 투입",
+      "pageNumbers": [
+        7
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-36",
+      "source": "oral-extra",
+      "number": "추가 36",
+      "question": "제동불완해 감지지령선 가압조건",
+      "page": 7,
+      "endPage": 7,
+      "answer": "상용, 비상, 보안제동, ATC 제동이 체결되지 않았을 때, 5초가 경과하여도 제동통\n압력이 0.8키로를 초과하면 제동불완해가 발생한 것으로 인지하여 모니터 장치에\n제동 불완해 신호를 전송",
+      "pageNumbers": [
+        7
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-37",
+      "source": "oral-extra",
+      "number": "추가 37",
+      "question": "한국철도공사 구간에서 25이하로 운전하는 경우",
+      "page": 7,
+      "endPage": 7,
+      "answer": "관제 승인이 있는 퇴행운전 시\n장내, 출발 진행 수신호에 의해 운전 시\n추진 운전 시\n선로전환기에 대향 운전 시\n차량 입환 시\n진행 수신호에 의할 때",
+      "pageNumbers": [
+        7
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-38",
+      "source": "oral-extra",
+      "number": "추가 38",
+      "question": "한국철도공사 45이하로 운전하는 경우",
+      "page": 7,
+      "endPage": 7,
+      "answer": "뒤 운전실에서 운전 시\n입환신호기에 의해 출발 시\n지령운전시",
+      "pageNumbers": [
+        7
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-39",
+      "source": "oral-extra",
+      "number": "추가 39",
+      "question": "한국철도공사 15이하 운전하는 경우",
+      "page": 7,
+      "endPage": 7,
+      "answer": "관제사 승인 없는 퇴행 시\nATC 차상 및 지상장치 고장 시",
+      "pageNumbers": [
+        7
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-40",
+      "source": "oral-extra",
+      "number": "추가 40",
+      "question": "서울교통공사 45이하로 운전하는 경우",
+      "page": 8,
+      "endPage": 8,
+      "answer": "ATS/ATC 고장 시\n승강장 통과 시\n지령식, 지도통신식에 의해 운전 시",
+      "pageNumbers": [
+        8
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-41",
+      "source": "oral-extra",
+      "number": "추가 41",
+      "question": "서울교통공사 25이하로 운전하는 경우",
+      "page": 8,
+      "endPage": 8,
+      "answer": "퇴행 운전 시\n진행 수신호 생략 승인에 의해 운전 시\n차량 입환 시\n진로개통표시기가 불량 시\n선로전환기 대향 운전 시\n전령법에 의해 운전 시",
+      "pageNumbers": [
+        8
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-42",
+      "source": "oral-extra",
+      "number": "추가 42",
+      "question": "침수 선로 운전 방법",
+      "page": 8,
+      "endPage": 8,
+      "answer": "레일 면까지 침수된 경우에는 그 앞쪽 지점에 일단 정차 후 선로 상태 확인하고, 통\n과가 가능하다고 인정될 때는 15키로 이하의 속도로 주의운전 할 것\n레일면을 초과하여 침수되었을 때에는 운전을 중지하고 관제사의 지시에 따를 것",
+      "pageNumbers": [
+        8
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-43",
+      "source": "oral-extra",
+      "number": "추가 43",
+      "question": "DLPN 차단 시 현상",
+      "page": 8,
+      "endPage": 8,
+      "answer": "해당 차량 1칸 출입문은 모두 열려있지만 모니터에서만 닫힘으로 표시",
+      "pageNumbers": [
+        8
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-44",
+      "source": "oral-extra",
+      "number": "추가 44",
+      "question": "ACM 구동시간과 ACM-G 조정압력",
+      "page": 8,
+      "endPage": 8,
+      "answer": "구동시간은 약 5~6분 정도\n조정압력은 6.5 ~ 7.5kg/cm",
+      "pageNumbers": [
+        8
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-45",
+      "source": "oral-extra",
+      "number": "추가 45",
+      "question": "ACMCS 설치 차량",
+      "page": 8,
+      "endPage": 8,
+      "answer": "전후부 TC차에 각 1개, M’차 3량 총 5개의 ACMCS가 설치",
+      "pageNumbers": [
+        8
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-46",
+      "source": "oral-extra",
+      "number": "추가 46",
+      "question": "ACM 공기 공급처",
+      "page": 9,
+      "endPage": 9,
+      "answer": "PAN, MCB, ADCg, EGS, M’차 L1, L2, L3",
+      "pageNumbers": [
+        9
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-47",
+      "source": "oral-extra",
+      "number": "추가 47",
+      "question": "회생제동 취급 중 단전 후 급전 시 MCBOS-RS-3초후-MCBCS 취급하는 이유",
+      "page": 9,
+      "endPage": 9,
+      "answer": "회생제동 시 발생한 전력이 전차선 단전으로 회생이 불가능하므로 견인회로에 축적\n되어 FC전압이 급상승하기 때문\n이 때 과전압방전사이리스터 작동시켜 전하를 과전압방전 저항기로 방전하는 과정\n에서 인버터가 정지되므로 정지된 인버터를 복귀하기 위한 RS 취급을 해야 동력운\n전 가능",
+      "pageNumbers": [
+        9
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-48",
+      "source": "oral-extra",
+      "number": "추가 48",
+      "question": "DSD 접점 불량 확인 방법",
+      "page": 9,
+      "endPage": 9,
+      "answer": "경고음 울리고, 5초 후에 비상제동 체결로 정차된 후 비상제동 완해되나, 출발 후 5\n이상의 속도에서 ZVR 무여자되면 재차 작동",
+      "pageNumbers": [
+        9
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-49",
+      "source": "oral-extra",
+      "number": "추가 49",
+      "question": "EBCOS 복귀 취급하는 시기",
+      "page": 9,
+      "endPage": 9,
+      "answer": "상황 발생 다음 역 정차 또는 다음 상황 발생하여 정차 후 발차 전에 복귀하고, 반드\n시 차장에게 EBCOS 복귀 통보",
+      "pageNumbers": [
+        9
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    },
+    {
+      "id": "oral-extra-50",
+      "source": "oral-extra",
+      "number": "추가 50",
+      "question": "L1차단 복귀 불능 시 조치",
+      "page": 9,
+      "endPage": 9,
+      "answer": "MCBOS-VCOS-RS-3초후-MCBCS 취급\n주 변환 장치 전력 변환 소자 소손 시, VCOS 취급하여 고장 차 차단하고 M’차는 연\n장급전\n그래도 복귀되지 않으면 해당 Unit 완전 부동취급 하고 연장급전",
+      "pageNumbers": [
+        9
+      ],
+      "imagePages": [],
+      "answerKind": "text",
+      "duplicateNumber": false
+    }
+  ]
+}

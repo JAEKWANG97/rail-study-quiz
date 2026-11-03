@@ -6,6 +6,7 @@ const {chromium}=await import(process.env.PLAYWRIGHT_MODULE || `${homedir()}/.ca
 const root=fileURLToPath(new URL('../',import.meta.url));
 const url=process.env.BROWSER_TEST_URL || 'http://127.0.0.1:4182/';
 const supplemental=JSON.parse(await readFile(`${root}public/supplemental.json`,'utf8'));
+const extra=JSON.parse(await readFile(`${root}public/oral-extra.json`,'utf8'));
 await mkdir(`${root}tmp/qa`,{recursive:true});
 const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_BIN || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
 const errors=[],passed=[],screenshots=[];
@@ -32,7 +33,7 @@ try{
   });
   const page=await context.newPage();await page.clock.install();await page.goto(url);await ready(page);
   assert.equal(await page.locator('#kind').count(),0);
-  assert.equal(await page.locator('#learned-count').textContent(),'1 / 240');
+  assert.equal(await page.locator('#learned-count').textContent(),'1 / 290');
   assert.match(await position(page),/\/ 150 /);
   await search(page,'MCB란');
   assert.equal(await id(page),'reference-textbook-13-1-1');
@@ -50,11 +51,54 @@ try{
   await page.locator('#scope').selectOption('review');
   assert.equal(await id(page),'reference-textbook-13-1-1');
   await page.locator('#scope').selectOption('all');
-  assert.equal(await page.locator('#learned-count').textContent(),'1 / 240');
+  assert.equal(await page.locator('#learned-count').textContent(),'1 / 290');
   await search(page,'전체 MCB 투입 불능');
   assert.equal(await id(page),'textbook-13');
   assert.equal(await page.locator('#star').getAttribute('aria-pressed'),'true');
   passed.push('기존 기록 마이그레이션 · MCB 독립 문제 · 정확한 7쪽 출처 · 추가 기록 저장 · 기존 암기/별표 유지');
+
+  await search(page,'');
+  await page.locator('[data-source="oral-extra"]').click();
+  assert.equal(await page.locator('[data-count="oral-extra"]').textContent(),'50');
+  assert.equal(await page.locator('#bank-count').textContent(),'현재 50문항');
+  await page.locator('#open-library').click();
+  assert.equal(await page.locator('.library-item').count(),50);
+  await page.locator('#close-library').click();
+  for(const question of extra.questions){
+    assert.equal(await id(page),question.id);
+    assert.equal(await page.locator('#question').textContent(),question.question);
+    assert.equal(await page.locator('#answer-section').isVisible(),false);
+    await page.locator('#reveal').click();
+    assert.equal(await page.locator('#answer').textContent(),question.answer);
+    if(question.page!==question.endPage){
+      await page.locator('#open-source').click();
+      assert.equal(await page.locator('#pdf-link').getAttribute('href'),`./sources/oral-extra.pdf#page=${question.page}`);
+      assert.equal(await page.locator('#source-pages img').count(),question.pageNumbers.length);
+      await page.waitForFunction(()=>[...document.querySelectorAll('#source-pages img')].every(image=>image.naturalWidth>0));
+      await page.locator('#close-source').click();
+    }
+    await page.locator('#next').click();
+  }
+  assert.equal(await page.locator('#cycle-label').textContent(),'2회차');
+  await page.locator('#star').click();
+  await page.locator('#reveal').click();
+  await page.locator('#mark-learned').click();
+  await page.reload();await ready(page);
+  assert.equal(await page.locator('[data-source="oral-extra"]').getAttribute('aria-pressed'),'true');
+  assert.equal(await page.locator('#star').getAttribute('aria-pressed'),'true');
+  assert.equal(await page.locator('#learned-count').textContent(),'2 / 290');
+  await page.locator('#scope').selectOption('unlearned');
+  assert.equal(await page.locator('#bank-count').textContent(),'현재 49문항');
+  await page.locator('#scope').selectOption('all');
+  await page.locator('#star').click();await page.locator('#reveal').click();await page.locator('#mark-learned').click();
+  await search(page,'송풍기 위치');
+  assert.equal(await id(page),'oral-extra-16');
+  assert.equal(await page.locator('#bank-count').textContent(),'현재 1문항');
+  await search(page,'');await page.locator('[data-source="oral"]').click();
+  assert.equal(await page.locator('#bank-count').textContent(),'현재 90문항');
+  await page.locator('[data-source="textbook"]').click();
+  assert.equal(await page.locator('#learned-count').textContent(),'1 / 290');
+  passed.push('신규구술 추가본 50문항 단독 목록·전체 순회·답안·연속 페이지 원문·선택/별표/암기 복원·검색·기존 90문항 유지');
 
   const seen=new Set();
   for(const scenario of supplemental.questions.filter(q=>q.kind==='scenario')){
@@ -120,13 +164,13 @@ try{
   passed.push('속도표 원문 12쪽 제공 · 교재/검색 조합 빈 범위 · 전체 복귀');
 
   await page.locator('#order').selectOption('shuffle');
-  assert.equal(await page.locator('[data-count="all"]').textContent(),'240');
+  assert.equal(await page.locator('[data-count="all"]').textContent(),'290');
   const mixed=new Set();
-  for(let i=0;i<240;i++){const currentId=await id(page);assert.ok(!mixed.has(currentId),`혼합 중복 ${currentId}`);mixed.add(currentId);await page.locator('#next').click();}
-  assert.equal(mixed.size,240);
+  for(let i=0;i<290;i++){const currentId=await id(page);assert.ok(!mixed.has(currentId),`혼합 중복 ${currentId}`);mixed.add(currentId);await page.locator('#next').click();}
+  assert.equal(mixed.size,290);
   assert.equal(await page.locator('#cycle-label').textContent(),'2회차');
-  assert.equal(await page.locator('#learned-count').textContent(),'1 / 240');
-  passed.push('전체 240문항 실제 랜덤 순회 중복/누락 없음 · 혼합 진도 표시');
+  assert.equal(await page.locator('#learned-count').textContent(),'1 / 290');
+  passed.push('전체 290문항 실제 랜덤 순회 중복/누락 없음 · 혼합 진도 표시');
 
   const layouts=[];
   for(const width of [1440,390,320]){

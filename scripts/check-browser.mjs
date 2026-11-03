@@ -26,7 +26,7 @@ try {
   await page.clock.install();
   await page.goto(url);
   await page.waitForSelector('body[data-ready="true"]');
-  assert.equal(await page.locator('[data-count="all"]').textContent(), '240');
+  assert.equal(await page.locator('[data-count="all"]').textContent(), '290');
   assert.equal(await page.locator('#kind').count(), 0);
   await page.locator('#order').selectOption('sequential');
   await page.locator('[data-source="textbook"]').click();
@@ -95,9 +95,9 @@ try {
   await page.locator('#reveal').click();
   await page.locator('#star').click();
   await page.locator('#mark-learned').click();
-  assert.equal(await page.locator('#learned-count').textContent(), '1 / 240');
+  assert.equal(await page.locator('#learned-count').textContent(), '1 / 290');
   await page.reload(); await page.waitForSelector('body[data-ready="true"]');
-  assert.equal(await page.locator('#learned-count').textContent(), '1 / 240');
+  assert.equal(await page.locator('#learned-count').textContent(), '1 / 290');
   assert.equal(await page.locator('#star').getAttribute('aria-pressed'), 'true');
   await page.locator('#scope').selectOption('unlearned');
   assert.equal(await page.locator('body').getAttribute('data-current-id'), 'textbook-2');
@@ -132,7 +132,7 @@ try {
   assert.equal(await page.locator('#empty-state').isVisible(),true);
   await page.locator('#show-all').click();
   await page.locator('#open-library').click();
-  assert.equal(await page.locator('.library-item').count(),240);
+  assert.equal(await page.locator('.library-item').count(),290);
   assert.equal(await page.locator('.library-item').filter({has:page.getByText('6.82',{exact:true})}).count(),0);
   await page.locator('.library-item').filter({has:page.getByText('표지 01',{exact:true})}).click();
   assert.equal(await page.locator('#library-dialog').isVisible(), false);
@@ -173,16 +173,16 @@ try {
     await tab.locator('[data-source="textbook"]').click();
   }
   await tabA.locator('#reveal').click(); await tabA.locator('#mark-learned').click();
-  await tabB.waitForFunction(()=>document.querySelector('#learned-count').textContent==='1 / 240');
+  await tabB.waitForFunction(()=>document.querySelector('#learned-count').textContent==='1 / 290');
   await tabB.locator('#next').click(); await tabB.locator('#reveal').click(); await tabB.locator('#mark-review').click();
   await tabB.locator('#duration').selectOption('90');
   await tabA.waitForFunction(()=>document.querySelector('#review-count').textContent==='다시 보기 1');
   await tabA.reload(); await tabA.waitForSelector('body[data-ready="true"]');
-  assert.equal(await tabA.locator('#learned-count').textContent(),'1 / 240');
+  assert.equal(await tabA.locator('#learned-count').textContent(),'1 / 290');
   assert.equal(await tabA.locator('#review-count').textContent(),'다시 보기 1');
   await tabB.locator('#previous').click(); await tabB.locator('#star').click();
   await tabA.waitForFunction(()=>document.querySelector('#star').getAttribute('aria-pressed')==='true');
-  assert.equal(await tabA.locator('#learned-count').textContent(),'1 / 240');
+  assert.equal(await tabA.locator('#learned-count').textContent(),'1 / 290');
   await tabA.locator('#scope').selectOption('unlearned');
   assert.equal(await tabA.locator('body').getAttribute('data-current-id'),'textbook-2');
   await tabB.locator('#reveal').click(); await tabB.locator('#mark-learned').click();
@@ -199,9 +199,9 @@ try {
   await blockedPage.locator('#order').selectOption('sequential');
   await blockedPage.locator('[data-source="textbook"]').click();
   await blockedPage.locator('#reveal').click(); await blockedPage.locator('#mark-learned').click();
-  assert.equal(await blockedPage.locator('#learned-count').textContent(),'1 / 240');
+  assert.equal(await blockedPage.locator('#learned-count').textContent(),'1 / 290');
   await blockedPage.locator('#next').click(); await blockedPage.locator('#reveal').click(); await blockedPage.locator('#mark-learned').click();
-  assert.equal(await blockedPage.locator('#learned-count').textContent(),'2 / 240');
+  assert.equal(await blockedPage.locator('#learned-count').textContent(),'2 / 290');
   assert.equal(await blockedPage.locator('#saved-status').textContent(),'이번 탭에서 연습');
   await blocked.close();
   passed.push('저장소 접근 차단에서도 학습·임시 기록 계속 사용');
@@ -212,9 +212,9 @@ try {
   await corruptPage.evaluate(()=>localStorage.setItem('rail-note-study-v1','{broken'));
   await corruptPage.reload(); await corruptPage.waitForSelector('body[data-ready="true"]');
   await corruptPage.locator('#reveal').click(); await corruptPage.locator('#mark-learned').click();
-  assert.equal(await corruptPage.locator('#learned-count').textContent(),'1 / 240');
+  assert.equal(await corruptPage.locator('#learned-count').textContent(),'1 / 290');
   await corruptPage.reload(); await corruptPage.waitForSelector('body[data-ready="true"]');
-  assert.equal(await corruptPage.locator('#learned-count').textContent(),'1 / 240');
+  assert.equal(await corruptPage.locator('#learned-count').textContent(),'1 / 290');
   await corruptPage.locator('#duration').selectOption('90');
   assert.equal(await corruptPage.evaluate(()=>JSON.parse(localStorage.getItem('rail-note-study-v1')).duration),90);
   await corrupt.close();
