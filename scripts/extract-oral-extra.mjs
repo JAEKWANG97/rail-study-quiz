@@ -22,7 +22,7 @@ for (const [index, page] of pages.entries()) {
       if (current && current.lines.length === 0) current.question += text;
       else {
         const number = String(questions.length + 1).padStart(2, '0');
-        current = {id:`${id}-${number}`, source:id, number:`추가 ${number}`, question:text, page:index+1, endPage:index+1, lines:[]};
+        current = {id:`${id}-${number}`, source:id, number, question:text, page:index+1, endPage:index+1, lines:[]};
         questions.push(current);
       }
     } else {
@@ -42,7 +42,7 @@ for (const question of questions) {
   question.answerKind = 'text';
   question.duplicateNumber = false;
 }
-const source = {id, name:'신규구술 추가본', filename, pageCount:pages.length, count:questions.length, sha256:createHash('sha256').update(await readFile(pdf)).digest('hex')};
+const source = {id, name:'신규 구술', filename, pageCount:pages.length, count:questions.length, sha256:createHash('sha256').update(await readFile(pdf)).digest('hex')};
 await writeFile(`${root}public/oral-extra.json`, JSON.stringify({version:1, sources:[source], questions}, null, 2)+'\n');
 await mkdir(`${root}public/page-previews`, {recursive:true});
 for (let page = 1; page <= pages.length; page++) {

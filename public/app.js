@@ -2,7 +2,7 @@ import { makeDeck, filterQuestions, Countdown, isStudyQuestion } from './model.j
 import { StudyStorage } from './persistence.js';
 
 const $ = id => document.getElementById(id);
-const allowed = {source: ['all', 'textbook', 'oral', 'oral-extra'], scope: ['all', 'unlearned', 'review', 'starred'], order: ['shuffle', 'sequential'], duration: [0, 30, 60, 90, 120]};
+const allowed = {source: ['all', 'textbook', 'oral-extra'], scope: ['all', 'unlearned', 'review', 'starred'], order: ['shuffle', 'sequential'], duration: [0, 30, 60, 90, 120]};
 const kindNames = {original:'원문 문항', reference:'참고사항', scenario:'세부 상황', sign:'표지 그림'};
 const state = {source: 'all', scope: 'all', order: 'shuffle', duration: 60, query: '', marks: {}, deck: [], cursor: 0, cycle: 1, answerVisible: false, expirationHandled: false, clock: new Countdown(60)};
 let data;
@@ -15,6 +15,7 @@ const pendingMarks = {};
 function restore() {
   try {
     const saved = persistence.read();
+    if (saved.source === 'oral') saved.source = 'oral-extra';
     for (const key of Object.keys(allowed)) if (allowed[key].includes(saved[key])) state[key] = saved[key];
     if (saved.marks && typeof saved.marks === 'object' && !Array.isArray(saved.marks)) {
       for (const [id, mark] of Object.entries(saved.marks)) {
@@ -212,7 +213,7 @@ function render() {
     $('answer-notice').textContent = '이 문항은 원문에 텍스트 답안이 비어 있어요. ‘원문 보기’로 확인해 주세요.';
     $('answer-note').hidden = !question.answerNote;
     $('answer-note').textContent = question.answerNote || '';
-    const visualPages = question.id === 'oral-2' ? [1] : question.imagePages;
+    const visualPages = question.imagePages;
     $('visual-reference').hidden = visualPages.length === 0;
     if ($('visual-pages').dataset.questionId !== question.id) {
       $('visual-pages').replaceChildren(...visualPages.map(page => pageFigure(question, page)));
@@ -347,7 +348,7 @@ try {
   const responses = await Promise.all(['questions.json', 'supplemental.json', 'oral-extra.json'].map(file => fetch(`./${file}`)));
   if (responses.some(response => !response.ok)) throw new Error('Question data unavailable');
   const [original, supplemental, extra] = await Promise.all(responses.map(response => response.json()));
-  data = {...original, sources:[...original.sources, ...extra.sources], questions:[...original.questions, ...supplemental.questions, ...extra.questions].filter(isStudyQuestion)};
+  data = {...original, sources:[...original.sources.filter(source => source.id !== 'oral'), ...extra.sources], questions:[...original.questions, ...supplemental.questions, ...extra.questions].filter(isStudyQuestion)};
   byId = new Map(data.questions.map(question => [question.id, question]));
   sourceById = new Map(data.sources.map(source => [source.id, source]));
   persistence = new StudyStorage({getItem: key => localStorage.getItem(key), setItem: (key, value) => localStorage.setItem(key, value)}, byId.keys());

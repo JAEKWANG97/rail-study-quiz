@@ -57,7 +57,7 @@ test('교재, 검색, 복습, 별표, 미암기 필터를 함께 적용한다', 
   const marks = {'textbook-1': {status: 'review', starred: true}, 'textbook-2': {status: 'learned'}, 'oral-1': {status: 'review'}};
   assert.deepEqual(filterQuestions(data.questions, {source: 'textbook', scope: 'review'}, marks).map(question=>question.id), ['textbook-1']);
   assert.deepEqual(filterQuestions(data.questions, {scope: 'starred'}, marks).map(question=>question.id), ['textbook-1']);
-  assert.equal(filterQuestions(data.questions, {scope: 'unlearned'}, marks).length, 170);
+  assert.equal(filterQuestions(data.questions, {scope: 'unlearned'}, marks).length, 80);
   assert.ok(filterQuestions(data.questions, {query:'구원열차'}).length > 0);
   assert.equal(filterQuestions(data.questions, {query:'문제에없는검색어'}).length, 0);
 });

@@ -86,15 +86,15 @@ test('16개 표지에 명칭 없는 문제 그림과 원문 설명·출처를 �
 
 test('출제유형 필터 없이 교재·검색·학습 필터를 결합하고 전체 문항을 순회한다', () => {
   for (const kind of ['original','reference','scenario','sign','all']) {
-    assert.equal(filterQuestions(all,{kind}).length,240,'이전 유형 설정은 출제를 제한하지 않는다');
+    assert.equal(filterQuestions(all,{kind}).length,150,'이전 유형 설정은 출제를 제한하지 않는다');
   }
-  assert.equal(filterQuestions(all,{source:'oral'}).length,90);
+  assert.equal(filterQuestions(all,{source:'oral'}).length,0);
   assert.equal(filterQuestions(all,{source:'textbook'}).length,150);
   assert.ok(filterQuestions(all,{query:'6.64'}).some(q=>q.kind==='scenario'));
   assert.ok(filterQuestions(all,{query:'타행'}).some(q=>q.kind==='sign'));
   assert.equal(filterQuestions(all,{scope:'starred'},{'reference-textbook-13-1-1':{starred:true}}).length,1);
   const deck=makeDeck(all);
-  assert.equal(new Set(deck).size,240);
+  assert.equal(new Set(deck).size,150);
 });
 
 test('각종 표지 묶음만 출제·검색·복습에서 제외하고 이미지 표지16개와 기록은 유지한다', () => {

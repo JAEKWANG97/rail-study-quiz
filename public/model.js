@@ -1,6 +1,6 @@
 // The overview card is replaced by the 16 individual image questions.
-// Keep the original source/ID available for provenance and stored study history.
-export const isStudyQuestion = question => question.id !== 'textbook-82';
+// Retain archived source data and IDs without including them in study or progress.
+export const isStudyQuestion = question => question.id !== 'textbook-82' && question.source !== 'oral';
 
 export function makeDeck(questions, order = 'shuffle', random = Math.random) {
   const deck = questions.filter(isStudyQuestion).map(question => question.id);

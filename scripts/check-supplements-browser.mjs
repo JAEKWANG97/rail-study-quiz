@@ -33,7 +33,7 @@ try{
   });
   const page=await context.newPage();await page.clock.install();await page.goto(url);await ready(page);
   assert.equal(await page.locator('#kind').count(),0);
-  assert.equal(await page.locator('#learned-count').textContent(),'1 / 290');
+  assert.equal(await page.locator('#learned-count').textContent(),'1 / 200');
   assert.match(await position(page),/\/ 150 /);
   await search(page,'MCB란');
   assert.equal(await id(page),'reference-textbook-13-1-1');
@@ -51,7 +51,7 @@ try{
   await page.locator('#scope').selectOption('review');
   assert.equal(await id(page),'reference-textbook-13-1-1');
   await page.locator('#scope').selectOption('all');
-  assert.equal(await page.locator('#learned-count').textContent(),'1 / 290');
+  assert.equal(await page.locator('#learned-count').textContent(),'1 / 200');
   await search(page,'전체 MCB 투입 불능');
   assert.equal(await id(page),'textbook-13');
   assert.equal(await page.locator('#star').getAttribute('aria-pressed'),'true');
@@ -86,7 +86,7 @@ try{
   await page.reload();await ready(page);
   assert.equal(await page.locator('[data-source="oral-extra"]').getAttribute('aria-pressed'),'true');
   assert.equal(await page.locator('#star').getAttribute('aria-pressed'),'true');
-  assert.equal(await page.locator('#learned-count').textContent(),'2 / 290');
+  assert.equal(await page.locator('#learned-count').textContent(),'2 / 200');
   await page.locator('#scope').selectOption('unlearned');
   assert.equal(await page.locator('#bank-count').textContent(),'현재 49문항');
   await page.locator('#scope').selectOption('all');
@@ -94,11 +94,13 @@ try{
   await search(page,'송풍기 위치');
   assert.equal(await id(page),'oral-extra-16');
   assert.equal(await page.locator('#bank-count').textContent(),'현재 1문항');
-  await search(page,'');await page.locator('[data-source="oral"]').click();
-  assert.equal(await page.locator('#bank-count').textContent(),'현재 90문항');
+  await search(page,'');
+  assert.equal(await page.locator('[data-source="oral"]').count(),0);
+  assert.equal(await page.locator('[data-source="oral-extra"] > span').first().textContent(),'신규 구술');
+  assert.equal(await page.locator('#bank-count').textContent(),'현재 50문항');
   await page.locator('[data-source="textbook"]').click();
-  assert.equal(await page.locator('#learned-count').textContent(),'1 / 290');
-  passed.push('신규구술 추가본 50문항 단독 목록·전체 순회·답안·연속 페이지 원문·선택/별표/암기 복원·검색·기존 90문항 유지');
+  assert.equal(await page.locator('#learned-count').textContent(),'1 / 200');
+  passed.push('신규 구술 50문항 단독 목록·전체 순회·답안·연속 페이지 원문·선택/별표/암기 복원·검색·기존 90문항 선택 제거');
 
   const seen=new Set();
   for(const scenario of supplemental.questions.filter(q=>q.kind==='scenario')){
@@ -155,7 +157,7 @@ try{
   await page.waitForFunction(()=>document.querySelector('#visual-pages img').naturalWidth>0);
   assert.equal(await page.locator('#visual-pages img').count(),1);
   assert.match(await page.locator('#visual-pages img').getAttribute('src'),/textbook-12\.png$/);
-  await page.locator('[data-source="oral"]').click();
+  await page.locator('[data-source="oral-extra"]').click();
   assert.equal(await page.locator('#empty-state').isVisible(),true);
   assert.equal(await page.locator('#next').isDisabled(),true);
   await page.locator('#show-all').click();
@@ -164,13 +166,13 @@ try{
   passed.push('속도표 원문 12쪽 제공 · 교재/검색 조합 빈 범위 · 전체 복귀');
 
   await page.locator('#order').selectOption('shuffle');
-  assert.equal(await page.locator('[data-count="all"]').textContent(),'290');
+  assert.equal(await page.locator('[data-count="all"]').textContent(),'200');
   const mixed=new Set();
-  for(let i=0;i<290;i++){const currentId=await id(page);assert.ok(!mixed.has(currentId),`혼합 중복 ${currentId}`);mixed.add(currentId);await page.locator('#next').click();}
-  assert.equal(mixed.size,290);
+  for(let i=0;i<200;i++){const currentId=await id(page);assert.ok(!mixed.has(currentId),`혼합 중복 ${currentId}`);mixed.add(currentId);await page.locator('#next').click();}
+  assert.equal(mixed.size,200);
   assert.equal(await page.locator('#cycle-label').textContent(),'2회차');
-  assert.equal(await page.locator('#learned-count').textContent(),'1 / 290');
-  passed.push('전체 290문항 실제 랜덤 순회 중복/누락 없음 · 혼합 진도 표시');
+  assert.equal(await page.locator('#learned-count').textContent(),'1 / 200');
+  passed.push('전체 200문항 실제 랜덤 순회 중복/누락 없음 · 혼합 진도 표시');
 
   const layouts=[];
   for(const width of [1440,390,320]){
@@ -209,6 +211,36 @@ try{
     }
   }
   passed.push('모든 추가 유형 320/390/1440px · 문제/답안/문항 목록 가로 넘침 없음 · 고정 이동/타이머 숨김 초기화');
+
+  const legacyContext=await browser.newContext();
+  await legacyContext.addInitScript(()=>{
+    if(!localStorage.getItem('oral-migration-seeded')){
+      localStorage.setItem('rail-note-study-v1',JSON.stringify({source:'oral',order:'sequential',duration:0,marks:{'oral-1':{status:'learned',starred:true},'oral-extra-02':{status:'learned',starred:true}}}));
+      localStorage.setItem('oral-migration-seeded','true');
+    }
+  });
+  const legacyPage=await legacyContext.newPage();
+  legacyPage.on('pageerror',error=>errors.push(error.message));
+  await legacyPage.goto(url);await ready(legacyPage);
+  assert.equal(await legacyPage.locator('[data-source="oral-extra"]').getAttribute('aria-pressed'),'true');
+  assert.equal(await legacyPage.locator('#bank-count').textContent(),'현재 50문항');
+  assert.equal(await legacyPage.locator('#learned-count').textContent(),'1 / 200');
+  assert.equal(await legacyPage.locator('#starred-count').textContent(),'별표 1');
+  assert.equal(await legacyPage.locator('#star').getAttribute('aria-pressed'),'false');
+  await legacyPage.locator('#scope').selectOption('starred');
+  assert.equal(await id(legacyPage),'oral-extra-02');
+  assert.equal(await legacyPage.locator('#bank-count').textContent(),'현재 1문항');
+  await legacyPage.locator('#scope').selectOption('all');
+  for(const width of [320,390,1440]){
+    await legacyPage.setViewportSize({width,height:width<640?844:1000});
+    await legacyPage.reload();await ready(legacyPage);await settings(legacyPage);
+    assert.equal(await legacyPage.locator('[data-source]').count(),3);
+    assert.equal(await legacyPage.locator('[data-source="oral"]').count(),0);
+    assert.equal(await legacyPage.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+    await shot(legacyPage,`oral-only/after-${width}`);
+  }
+  await legacyContext.close();
+  passed.push('이전 90문항 선택은 신규 50문항으로 복원 · 기존 90문항 기록은 진도/별표에서 제외 · 새 50문항 기록 보존 · 3개 자료 버튼');
 
   const contact=await context.newPage();await contact.setViewportSize({width:800,height:1100});
   await contact.setContent(`<html lang="ko"><style>body{font:14px sans-serif;margin:20px}main{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}figure{margin:0;padding:12px;border:1px solid #ddd;text-align:center}img{width:140px;height:140px;object-fit:contain}figcaption{height:40px;line-height:20px}</style><main>${signs.map(q=>`<figure><img src="${new URL(q.image,url)}"><figcaption>${q.number}<br>${q.signName}</figcaption></figure>`).join('')}</main></html>`);

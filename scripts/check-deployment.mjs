@@ -18,7 +18,7 @@ const supplemental = JSON.parse(await readFile(`${root}public/supplemental.json`
 const extra = JSON.parse(await readFile(`${root}public/oral-extra.json`, 'utf8'));
 const activeOriginal = original.questions.filter(isStudyQuestion);
 assert.equal(version.questionCount, activeOriginal.length + supplemental.questions.length + extra.questions.length);
-assert.equal(version.archivedQuestionCount,1);
+assert.equal(version.archivedQuestionCount,original.questions.length - activeOriginal.length);
 assert.deepEqual(version.counts, {original:activeOriginal.length, ...supplemental.counts, oralExtra:extra.questions.length});
 const files = [];
 async function collect(directory = '') {

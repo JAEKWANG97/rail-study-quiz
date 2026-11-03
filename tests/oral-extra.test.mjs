@@ -11,16 +11,20 @@ const supplemental = JSON.parse(await readFile(new URL('supplemental.json', root
 const extra = JSON.parse(await readFile(new URL('oral-extra.json', root), 'utf8'));
 const all = [...original.questions, ...supplemental.questions, ...extra.questions];
 
-test('기존 자료와 구분되는 추가본 50문항을 단독 또는 전체 290문항으로 학습한다', () => {
+test('기존 구술 90문항은 제외하고 신규 구술 50문항과 교재를 전체 200문항으로 학습한다', () => {
   assert.equal(extra.questions.length, 50);
   assert.equal(new Set(all.map(q => q.id)).size, all.length);
-  assert.equal(filterQuestions(all, {source:'oral'}).length, 90);
+  assert.equal(extra.sources[0].name, '신규 구술');
+  assert.equal(filterQuestions(all, {source:'oral'}).length, 0);
   assert.equal(filterQuestions(all, {source:'textbook'}).length, 150);
   assert.deepEqual(filterQuestions(all, {source:'oral-extra'}), extra.questions);
   const deck = makeDeck(all);
-  assert.equal(deck.length, 290);
-  assert.equal(new Set(deck).size, 290);
+  assert.equal(deck.length, 200);
+  assert.equal(new Set(deck).size, 200);
   assert.ok(extra.questions.every(q => deck.includes(q.id)));
+  assert.ok(!deck.some(id => /^oral-\d/.test(id)));
+  assert.equal(filterQuestions(all, {scope:'starred'}, {'oral-1':{starred:true}}).length, 0);
+  assert.equal(filterQuestions(all, {scope:'review'}, {'oral-1':{status:'review'}}).length, 0);
 });
 
 test('추가본은 원본 PDF와 9쪽 미리보기를 연결하고 모든 문항에 답안을 보존한다', async () => {
